@@ -25,7 +25,7 @@ export default function Home() {
       <div>Hi there</div>
       {transaction.map((tsx,index)=>(
         <div key={index}>
-          <h6 className="text-lg leading-10">{tsx}</h6>
+          <h6 className="text-lg leading-10 ">{tsx}</h6>
         </div>
       ))}
     </main>
