@@ -26,7 +26,8 @@ export default function Home() {
       {transaction.map((tsx,index)=>(
         <div key={index}>
           <h6 className="text-lg leading-10 text-green-400 overflow-clip">{tsx}</h6>
-          <h5>{tsx}</h5>
+          <h5>{contracts}</h5>
+
         </div>
       ))}
     </main>
