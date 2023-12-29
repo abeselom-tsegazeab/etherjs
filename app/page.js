@@ -15,7 +15,7 @@ export default function Home() {
     const con = await provider.blockNumber()
     const number = checkFunction.transactions
     setTransaction(contracts)
-    console.log(code);
+    console.log(con);
   };
  useEffect(()=>{
   etherjs()
