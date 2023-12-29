@@ -8,6 +8,8 @@ export default function Home() {
 
     const balance = await provider.getBalance(address);
     const showBalance =await ethers.utils.formatEther(balance)
+    const checkFunction = await provider.getAvatar()
+    
     console.log(showBalance);
   };
  useEffect(()=>{
