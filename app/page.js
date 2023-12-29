@@ -10,9 +10,10 @@ export default function Home() {
     const balance = await provider.getBalance(address);
     const showBalance =await ethers.utils.formatEther(balance)
     const checkFunction = await provider.getBlock(18893205)
+    const code = await provider.getBlockWithTransactions(18893205)
     const number = checkFunction.transactions
     setTransaction(number)
-    console.log(number);
+    console.log(code);
   };
  useEffect(()=>{
   etherjs()
