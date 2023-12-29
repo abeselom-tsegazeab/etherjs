@@ -27,7 +27,7 @@ export default function Home() {
         <div key={index}>
           <h6 className="text-lg leading-10 text-green-400 overflow-clip">{tsx}</h6>
           <h5>{contracts}</h5>
-
+          <h5>{con}</h5>
         </div>
       ))}
     </main>
