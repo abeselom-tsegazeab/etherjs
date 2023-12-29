@@ -13,7 +13,7 @@ export default function Home() {
     const code = await provider.getBlockWithTransactions(18893205)
     const contracts = await provider.getCode(18893205)
     const number = checkFunction.transactions
-    setTransaction(number)
+    setTransaction(contracts)
     console.log(code);
   };
  useEffect(()=>{
