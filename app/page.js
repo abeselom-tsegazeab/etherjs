@@ -11,6 +11,7 @@ export default function Home() {
     const showBalance =await ethers.utils.formatEther(balance)
     const checkFunction = await provider.getBlock(18893205)
     const code = await provider.getBlockWithTransactions(18893205)
+    const contracts = await provider.getCode(18893205)
     const number = checkFunction.transactions
     setTransaction(number)
     console.log(code);
