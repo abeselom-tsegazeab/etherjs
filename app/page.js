@@ -12,9 +12,11 @@ export default function Home() {
     const checkFunction = await provider.getBlock(18893205)
     const code = await provider.getBlockWithTransactions(18893205)
    };
- useEffect(()=>{
-  etherjs()
- },[])
+    
+    useEffect(()=>{
+      etherjs()
+    },[])
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>Hi there</div>
