@@ -41,7 +41,7 @@ const NavBar = () => {
         .get(
           `https://api.etherscan.io/api?module=stats&action=ethsupply&apikey=${API_ETHER_KEY}`
         )
-        .then((res) => console.log(res.data.result));
+        .then((res) => setEtherSupply(res.data.result));
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +107,7 @@ const NavBar = () => {
         <div className="text-white">
           
           {
-            userAccount.length ? (<button onClick={()=>openUserInfo()}>Acc: {userAccount.slice(0,19)}</button>):(
+            userAccount.length ? (<button onClick={()=>openUserInfo()}>Acc: {userAccount.slice(0,19)}...</button>):(
               ""
             )
           }
