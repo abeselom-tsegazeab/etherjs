@@ -4,7 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
 import logo from "../public/assets/ether.png";
-
+import {MdOutlineClose} from 'react-icons/md'
 const NavBar = () => {
   const [userAccount, setUserAccount] = useState("");
   const [balance, setBalance] = useState("");
@@ -13,6 +13,16 @@ const NavBar = () => {
   const [price, setPrice] = useState([]);
   const [etherSupply, setEtherSupply] = useState([]);
   const [updatedPriceDate, setUpdatedPriceDate] = useState("");
+
+
+  // openmodal box
+  const openUserInfo = ()=>{
+    if(openModel){
+      setOpenModel(false)
+    }else if(!openModel){
+      setOpenModel(true)
+    }
+  }
 
   /* Get ether price update */
 
@@ -106,9 +116,22 @@ const NavBar = () => {
         {/*// Right side of header  */}
         <div className="text-white">
           
-          {
-            userAccount.length ? (<button onClick={()=>openUserInfo()}>Acc: {userAccount.slice(0,19)}...</button>):(
-              ""
+          {userAccount.length ? (
+            <button onClick={()=>openUserInfo()}>
+              Acc: {userAccount.slice(0,19)}...
+            </button>
+            {
+              openModel ? (
+                <div className="">
+                <div className="">
+                <div className="">
+                </div>
+                </div>
+                </div>
+              ):("")
+            }
+            ):(
+             ""
             )
           }
         </div>
