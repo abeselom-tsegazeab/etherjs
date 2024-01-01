@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Image from "next/image";
 import { RiSendPlaneFill } from "react-icons/ri";
@@ -8,6 +9,7 @@ import {
   TiSocialFacebook,
   TiSocialInstagram,
 } from "react-icons/ti";
+import { FaEthereum } from "react-icons/fa";
 
 //INTERNAL IMPORT
 import Style from "../styles/Footer.module.css";
@@ -15,9 +17,9 @@ import footerLogo from "../public/assets/ethereum.png";
 
 const Footer = () => {
   return (
-    <div className={Style.footer}>
+    <div className={`${Style.footer} `}>
       <div className={Style.footer__box}>
-        <Image src={footerLogo} alt="logo" width={100} height={100} />
+        <FaEthereum className="text-6xl hover:text-[#9a02ac]"/>
       </div>
       <div className={Style.footer__box}>
         <div className={Style.footer__input}>
@@ -28,11 +30,11 @@ const Footer = () => {
 
       <div className={Style.footer__box}>
         <div className={Style.social}>
-          <TiSocialTwitter />
-          <TiSocialLinkedin />
-          <TiSocialFacebook />
-          <TiSocialInstagram />
-          <TiSocialYoutube />
+          <TiSocialTwitter className=" hover:text-[#9a02ac]"/>
+          <TiSocialLinkedin className=" hover:text-[#9a02ac]"/>
+          <TiSocialFacebook className=" hover:text-[#9a02ac]"/>
+          <TiSocialInstagram className=" hover:text-[#9a02ac]"/>
+          <TiSocialYoutube className=" hover:text-[#9a02ac]"/>
         </div>
       </div>
     </div>

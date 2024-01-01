@@ -1,18 +1,16 @@
 
 .footer{
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     padding: 1rem;
     background-color: #1F1A36;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     border-radius: .5rem;
-
     display: grid;
     grid-template-columns: 12rem repeat(2, 1fr);
     align-items: center;
     gap: 2rem;
     margin-top: 3rem;
-
 }
 
 .footer__box{
