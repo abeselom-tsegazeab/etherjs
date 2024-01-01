@@ -3,13 +3,16 @@ import React, { useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
-import {MdOutlineClose} from 'react-icons/md';
-import {TbChartArrowsVertical} from 'react-icons/tb';
+import { MdOutlineClose } from "react-icons/md";
+import { TbChartArrowsVertical } from "react-icons/tb";
+import { FaGlobe } from "react-icons/fa";
+import { FaTachometerAlt } from "react-icons/fa";
+import { FaEthereum } from "react-icons/fa";
 
 
 import logo from "../public/assets/ether.png";
-import avatar from '../public/assets/avatar.png'
-
+import avatar from "../public/assets/avatar.png";
+import Style from '../styles/NavBar.module.css';
 const NavBar = () => {
   const [userAccount, setUserAccount] = useState("");
   const [balance, setBalance] = useState("");
@@ -19,15 +22,14 @@ const NavBar = () => {
   const [etherSupply, setEtherSupply] = useState([]);
   const [updatedPriceDate, setUpdatedPriceDate] = useState("");
 
-
   // openmodal box
-  const openUserInfo = ()=>{
-    if(openModel){
-      setOpenModel(false)
-    }else if(!openModel){
-      setOpenModel(true)
+  const openUserInfo = () => {
+    if (openModel) {
+      setOpenModel(false);
+    } else if (!openModel) {
+      setOpenModel(true);
     }
-  }
+  };
 
   /* Get ether price update */
 
@@ -104,48 +106,115 @@ const NavBar = () => {
   }, []);
 
   return (
+    <div className="">
     <div>
-      <div>
-        <div className="">
-          <Link href={"/"}>
-            <div className="">
-              {/* <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="NavBar_supplyIcon__da_5d" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 21v-14"></path><path d="M9 15l3 -3l3 3"></path><path d="M15 10l3 -3l3 3"></path><line x1="3" y1="21" x2="21" y2="21"></line><line x1="12" y1="21" x2="12" y2="12"></line><path d="M3 6l3 -3l3 3"></path><path d="M6 21v-18"></path></svg> */}
-              <h1 className="hidden md:block">Ether Finance</h1>
-              <h1 className="md:hidden block">
-                <Image src={logo} alt="logo" width={50} height={50} />
-              </h1>
-            </div>
-          </Link>
-        </div>
-
-        {/*// Right side of header  */}
-        <div className="text-white">
-          
-          {userAccount.length ? (
-            <button onClick={()=>openUserInfo()}>
-              Acc: {userAccount.slice(0,19)}...
-            </button>
-            {
-              openModel ? (
-                <div className="">
-                <div className="">
-                <div className="">
-                  <MdOutlineClose onClick={()=>openUserInfo()}/>
-                </div>
-                <Image src={avatar} alt="user" width={50} height={50}/>
-                <p>Acc: &nbsp; {userAccount} ETH</p>
-                <p>Balance: &nbsp; {balance} ETH</p>
-                <p>Total Transaction: &nbsp; count ETH</p>
-                </div>
-                </div>
-              ):("")
-            }
-            ):(
-             ""
-            )
-          }
+      <div className={Style.navbar}>
+        <div className={Style.navbar__container}>
+          <div className={Style.left}>
+            <Link href='/'>
+              <div>
+                <h1 className={Style.desktop}>Ether Finance</h1>
+                <h1 className={Style.mobile}>
+                  <Image src={logo} alt='logo' width={50} height={50} />
+                </h1>
+              </div>
+            </Link>
+          </div>
+          <div className={Style.right}>
+            {userAccount.length ? (
+              <div className={Style.connected}>
+                <button onClick={() => openUserInfo()}>
+                  Acc: {userAccount.slice(0, 10)}..
+                </button>
+                {openModel ? (
+                  <div className={Style.userModal}>
+                    <div className={Style.user_box}>
+                      <div className={Style.closeBtn}>
+                        <MdOutlineClose onClick={() => openUserInfo()} />
+                      </div>
+                      <Image
+                        src={avatar}
+                        alt='user account'
+                        width={50}
+                        height={50}
+                      />
+                      <p>Acc:&nbsp;{userAccount.slice(0, 20)}..</p>
+                      <p>Balance:&nbsp;{balance} ETH</p>
+                      <p>Total Trans:&nbsp;{count} </p>
+                    </div>
+                  </div>
+                ) : (
+                ''
+                )}
+              </div>
+            ) : (
+              <button onClick={() => connectWallet()}>Connect Wallet</button>
+            )}
+          </div>
         </div>
       </div>
+      <div className={Style.price}>
+        <div className={`w-full !grid md:!grid-cols-2 grid-rows-2 py-3 ${Style.price__box}`}>
+          <div className={Style.etherPrice}>
+            <div>
+            <FaEthereum className="text-5xl hover:text-[#fff]"/>
+            </div>
+            <div>
+              <h4>ETHER PRICE</h4>
+              <p>$ &nbsp;{price.ethusd}</p>
+              <p>{price.ethusd} &nbsp;BTC ₿</p>
+              <p>{updatedPriceDate} </p>
+            </div>
+          </div>
+          <div className={Style.supplyEther}>
+            <div>
+              <TbChartArrowsVertical className={`${Style.supplyIcon} hover:text-[#fff]`} />
+            </div>
+            <div>
+              <h4>TOTAL ETHER SUPPLY</h4>
+              <p>{etherSupply}</p>
+              <p>Updated Supply data</p>
+              <p>&nbsp;</p>
+            </div>
+          </div>
+          
+          <div className="w-full h-full flex items-center justify-between ">
+            <div className="flex flex-row items-center gap-8 w-full">
+              <FaGlobe className="text-5xl hover:text-[#fff]"/>
+            
+              <span className="flex flex-col  justify-between text-left">
+                <p>MARKET CAP</p>
+                <p>$23-59-098-098-0</p>
+              </span>
+            </div>
+          </div>
+
+          <div className="w-full h-full flex items-center justify-between ">
+            <div className="flex flex-row items-center gap-8 w-full">
+              <FaTachometerAlt className="text-5xl hover:text-[#fff]"/>
+            
+              <span className="flex flex-col  justify-between text-left">
+                <p>LAST FINILIZED BLOCK</p>
+                <p>02934857</p>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className={Style.price__box}>
+          <div className={Style.tokenBox__logo}>
+            <Image src={logo} alt='logo' width={200} height={200} />
+          </div>
+
+          <div className={Style.logoWidth}>
+            <p>ERC20 TOKEN</p>
+            <p>ERC21 TOKEN</p>
+            <p>ERC1155 TOKEN</p>
+            <p>CONTRACT</p>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   );
 };
