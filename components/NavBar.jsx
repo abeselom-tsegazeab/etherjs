@@ -48,7 +48,10 @@ const NavBar = () => {
   const checkIfAccountExist = async ()=>{
     try {
       if(!window.ethereum) return console.log("Please install Metamask!")
-      const accounts = await window.ethereum.request({method:"eth_"})
+      const accounts = await window.ethereum.request({method:"eth_account"});
+    if(accounts.length){
+      
+    }
     } catch (error) {
       console.log(error)
     }
