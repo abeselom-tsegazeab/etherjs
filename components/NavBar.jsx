@@ -55,6 +55,8 @@ const NavBar = () => {
       const accounts = await window.ethereum.request({
         method: "eth_accounts",
       });
+      console.log(accounts,'accounts')
+
       if (accounts.length) {
         setUserAccount(accounts[0]);
       }
@@ -103,7 +105,14 @@ const NavBar = () => {
         </div>
 
         {/*// Right side of header  */}
-        <div className=""></div>
+        <div className="text-white">
+          
+          {
+            userAccount.length ? (<button onClick={()=>openUserInfo()}>Acc: {userAccount.slice(0,19)}</button>):(
+              ""
+            )
+          }
+        </div>
       </div>
     </div>
   );
