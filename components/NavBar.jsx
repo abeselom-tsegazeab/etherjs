@@ -55,7 +55,6 @@ const NavBar = () => {
       const accounts = await window.ethereum.request({
         method: "eth_accounts",
       });
-      console.log(accounts,'accounts')
 
       if (accounts.length) {
         setUserAccount(accounts[0]);
