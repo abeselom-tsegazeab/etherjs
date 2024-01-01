@@ -50,7 +50,8 @@ const NavBar = () => {
       if(!window.ethereum) return console.log("Please install Metamask!")
       const accounts = await window.ethereum.request({method:"eth_account"});
     if(accounts.length){
-      
+      setUserAccount(accounts[0]);
+      console.log(userAccount)
     }
     } catch (error) {
       console.log(error)
@@ -58,6 +59,7 @@ const NavBar = () => {
   }
 
   useEffect(() => {
+    checkIfAccountExist()
     getEtherPrice();
   }, []);
 
