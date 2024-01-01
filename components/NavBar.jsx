@@ -37,30 +37,50 @@ const NavBar = () => {
           );
         });
 
-        axios.get(`https://api.etherscan.io/api?module=stats&action=ethsupply&apikey=${API_ETHER_KEY}`).then((res)=>console.log(res.data.result))
+      axios
+        .get(
+          `https://api.etherscan.io/api?module=stats&action=ethsupply&apikey=${API_ETHER_KEY}`
+        )
+        .then((res) => console.log(res.data.result));
     } catch (error) {
-    console.log(error);
+      console.log(error);
     }
   };
 
-// a function to check if wallet exists
+  // a function to check if wallet exists
 
-  const checkIfAccountExist = async ()=>{
+  const checkIfAccountExist = async () => {
     try {
-      if(!window.ethereum) return console.log("Please install Metamask!")
-      const accounts = await window.ethereum.request({method:"eth_accounts"});
-    if(accounts.length){
-      setUserAccount(accounts[0]);
-    }
+      if (!window.ethereum) return console.log("Please install Metamask!");
+      const accounts = await window.ethereum.request({
+        method: "eth_accounts",
+      });
+      if (accounts.length) {
+        setUserAccount(accounts[0]);
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   // a function to connect to wallet
 
+  const connectWallet = async () => {
+    try {
+      if (!window.ethereum) return console.log("Please install Metamask!");
+      const accounts = await window.ethereum.request({
+        method: "eth_accounts",
+      });
+      if (accounts.length) {
+        setUserAccount(accounts[0]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    checkIfAccountExist()
+    checkIfAccountExist();
     getEtherPrice();
   }, []);
 
