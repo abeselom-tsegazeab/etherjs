@@ -133,6 +133,8 @@ const NavBar = () => {
                   <MdOutlineClose onClick={()=>openUserInfo()}/>
                 </div>
                 <Image src={avatar} alt="user" width={50} height={50}/>
+
+                <p>Acc: &nbsp; {balance} ETH</p>
                 </div>
                 </div>
               ):("")
