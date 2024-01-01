@@ -69,11 +69,14 @@ const NavBar = () => {
     try {
       if (!window.ethereum) return console.log("Please install Metamask!");
       const accounts = await window.ethereum.request({
-        method: "eth_accounts",
+        method: "eth_requestAccount",
       });
       if (accounts.length) {
         setUserAccount(accounts[0]);
+      } else {
+        console.log("Sorry You don't have account!");
       }
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
