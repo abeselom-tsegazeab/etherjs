@@ -3,8 +3,13 @@ import React, { useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
+import {MdOutlineClose} from 'react-icons/md';
+import {TbChartArrowsVertical} from 'react-icons/tb';
+
+
 import logo from "../public/assets/ether.png";
-import {MdOutlineClose} from 'react-icons/md'
+import avatar from '../public/assets/avatar.png'
+
 const NavBar = () => {
   const [userAccount, setUserAccount] = useState("");
   const [balance, setBalance] = useState("");
@@ -125,7 +130,9 @@ const NavBar = () => {
                 <div className="">
                 <div className="">
                 <div className="">
+                  <MdOutlineClose onClick={()=>openUserInfo()}/>
                 </div>
+                <Image src={avatar}/>
                 </div>
                 </div>
               ):("")
