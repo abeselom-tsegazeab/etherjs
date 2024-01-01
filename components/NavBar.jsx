@@ -43,20 +43,21 @@ const NavBar = () => {
     }
   };
 
-// a function to connect to metamask
+// a function to check if wallet exists
 
   const checkIfAccountExist = async ()=>{
     try {
       if(!window.ethereum) return console.log("Please install Metamask!")
-      const accounts = await window.ethereum.request({method:"eth_account"});
+      const accounts = await window.ethereum.request({method:"eth_accounts"});
     if(accounts.length){
       setUserAccount(accounts[0]);
-      console.log(userAccount)
     }
     } catch (error) {
       console.log(error)
     }
   }
+
+  // a function to connect to wallet
 
   useEffect(() => {
     checkIfAccountExist()
