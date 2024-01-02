@@ -18,8 +18,8 @@ export default function Home() {
 
   // convert ether
   const convertIntoEth = (amount)=>{
-    const ETH = ethers.utils.formatUnits(amount,'ether')
-    return ETH
+    const ETH = ethers.utils.formatUnits(amount,'ether');
+    return ETH;
   }
 
   // input address
@@ -87,8 +87,8 @@ export default function Home() {
                         </span>
                       </div>
                     <div className={Style.reward}>
-                      {/* <p>{convertIntoEth(e.baseFeePerGas)} <span>ETH</span></p>
-                      <Image src={logo} className={Style.eth} alt='Ether Logo'/> */}
+                      <p>{convertIntoEth(e.baseeFeePerGas)} <span>ETH</span></p>
+                      <Image src={logo} className={Style.eth} alt='Ether Logo' width={10} height={10}/>
                     </div>
                     </div>
                   </div>
