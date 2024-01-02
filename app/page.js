@@ -44,7 +44,7 @@ export default function Home() {
                   <div className={Style.bk}>
                     {i + 1}<p>BK</p>
                     <Link href={{pathname:'/block',query:e.number}}>
-
+                      {e.timestamp}
                     </Link>
 
                   </div>
