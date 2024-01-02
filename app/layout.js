@@ -12,9 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <EtherProvider>
+        {/* <EtherProvider> */}
           <div>{children}</div>
-        </EtherProvider>
+        {/* </EtherProvider> */}
       </body>
     </html>
   );
