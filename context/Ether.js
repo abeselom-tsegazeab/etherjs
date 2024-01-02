@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { ethers } from "ethers";
 
@@ -9,8 +10,10 @@ export const EtherProvider = ({childred})=>{
 
     return (
         <Etherscan.Provider value={{data}}>
+            <div>
             {childred}
-        </Etherscan.Provider>
+            </div>
+        </Etherscan.Provider> 
     )
 }
 
