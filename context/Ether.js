@@ -36,14 +36,14 @@ export const EtherProvider = ({ children }) => {
       // get block details
       const getBlockDetails = listTenBlock.flat();
       setTopTenBlock(getBlockDetails);
-      
-      const tenBlockWithDetails = [];
 
+      const tenBlockWithDetails = [];
       getBlockDetails.map(async (e) => {
         const singleBlockData = await provider.getBlock(e);
         tenBlockWithDetails.push([singleBlockData]);
         setYourBlockTsx(tenBlockWithDetails)
       });
+      console.log()
       // ether price
       const gasPrice = await provider.getGasPrice();
       const latestGasPrice = ethers.utils.formatUnits(gasPrice);

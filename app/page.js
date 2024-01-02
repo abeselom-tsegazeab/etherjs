@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
   const { data, yourBlockTsx } = useEtherScan();
-  console.log(yourBlockTsx)
+  // console.log(yourBlockTsx)
   const [userAccount, setUserAccount] = useState("");
   return (
     <main className="">
