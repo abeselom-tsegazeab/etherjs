@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, { useContext } from "react";
 import { ethers } from "ethers";
 
 
@@ -17,5 +17,8 @@ export const EtherProvider = ({childred})=>{
     )
 }
 
+export function useEtherScan(){
+    return useContext(Etherscan)
+}
 
 

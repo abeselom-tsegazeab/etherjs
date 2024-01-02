@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { EtherProvider } from "@/context/Ether";
+import { EtherProvider } from "../context/Ether";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
