@@ -28,7 +28,6 @@ export const EtherProvider = ({ children }) => {
       // top ten blocks
       const previosBlock = getCurrentBlock - 10;
       const listTenBlock = [];
-
       for (let i = getCurrentBlock; i > previosBlock; i--) {
         listTenBlock.push([i]);
       }
@@ -38,6 +37,7 @@ export const EtherProvider = ({ children }) => {
       setTopTenBlock(getBlockDetails);
 
       const tenBlockWithDetails = [];
+
       getBlockDetails.map(async (e) => {
         const singleBlockData = await provider.getBlock(e);
         tenBlockWithDetails.push([singleBlockData]);
