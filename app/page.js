@@ -10,6 +10,7 @@ import { useEtherScan } from "@/context/Ether.js";
 import Style from "../styles/Home.module.css";
 import logo from "../public/assets/ether.png";
 import { useRouter } from "next/navigation";
+import Image from "next/image.js";
 
 export default function Home() {
   const router = useRouter();
@@ -38,8 +39,9 @@ export default function Home() {
           <form className={Style.accountAddress}>
             <input
               type="text"
-              placeholder="Ether Account address"
+              placeholder="Please Enter Your Ether Account address"
               id="accountAddress"
+              className="text-white placeholder:text-white"
             />
             <Link
               href={{ pathname: "/account", query: userAccount }}
@@ -56,16 +58,14 @@ export default function Home() {
             <h3>Latest Blocks</h3>
             <div className={Style.container_block}>
               {yourBlockTsx.map((e, i) => (
-                <div className={Style.oneBlock} key={i}>
-                  <div className={Style.block}>
-                    <div className={Style.info}>
-                      <div className={`${Style.bk} !w-full`}>
-                        <div className="">
-                          <p className="w-full">BK No</p>
+                <div className={`${Style.oneBlock} my-6 border border-[rgba(4,189,228,1)] rounded-[10px] p-3`} key={i}>
+                  <div className={`${Style.block} w-full`}>
+                    <div className={`${Style.info} flex w-full items-center justify-between`}>
+                      <div className={`${Style.bk} flex`}>
+                          <p className="w-full">BK No:</p>
                           <Link href={{ pathname: "/block", query: e.number }}>
                             {e[0].number}
                           </Link>
-                        </div>
                       </div>
                       <p>{e[0].timestamp}</p>
                     </div>
@@ -95,7 +95,7 @@ export default function Home() {
                           {convertIntoEth(e[0].baseFeePerGas._hex)}{" "}
                           <span>ETH</span>
                         </p>
-                        {/* <Image src={logo} className={Style.eth} alt='Ether Logo' width={10} height={10}/> */}
+                        <Image src={logo} className={Style.eth} alt='Ether Logo' width={10} height={10}/>
                       </div>
                     </div>
                   </div>
