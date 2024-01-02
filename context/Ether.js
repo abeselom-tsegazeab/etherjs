@@ -5,14 +5,13 @@ import { ethers } from "ethers";
 
 export const Etherscan = React.createContext()
 
-export const EtherProvider = ({childred})=>{
-    // const data = 'Etherscan Clone';
+export const EtherProvider = ({children})=>{
     const [data, setData] = useState('Etherscan Clone')
 
     return (
         <Etherscan.Provider value={{data}}>
             <div>
-            {childred}
+            {children}
             </div>
         </Etherscan.Provider> 
     )
