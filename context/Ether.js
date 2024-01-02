@@ -9,8 +9,7 @@ export const Etherscan = React.createContext();
 
 export const EtherProvider = ({ children }) => {
   const [data, setData] = useState("Etherscan Clone");
-  const tenBlockWithDetails = [];
-  const [yourBlockTsx, setYourBlockTsx] = useState(tenBlockWithDetails);
+  const [yourBlockTsx, setYourBlockTsx] = useState([]);
   const [currentBlock, setCurrentBlock] = useState([]);
   const [topTenBlock, setTopTenBlock] = useState([]);
   const [transaction, setTransaction] = useState([]);
@@ -37,12 +36,14 @@ export const EtherProvider = ({ children }) => {
       // get block details
       const getBlockDetails = listTenBlock.flat();
       setTopTenBlock(getBlockDetails);
+      
+      const tenBlockWithDetails = [];
 
       getBlockDetails.map(async (e) => {
         const singleBlockData = await provider.getBlock(e);
         tenBlockWithDetails.push([singleBlockData]);
+        setYourBlockTsx(tenBlockWithDetails)
       });
-
       // ether price
       const gasPrice = await provider.getGasPrice();
       const latestGasPrice = ethers.utils.formatUnits(gasPrice);

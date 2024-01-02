@@ -39,10 +39,11 @@ export default function Home() {
       <h3>Latest Blocks</h3>
       <div className={Style.container_block}>
         {yourBlockTsx.map((e,i)=>(
-          <div className={Style.oneBlock} key={i}>
+          <div className={Style.oneBlock} key={i + 1}>
             <div className={Style.block}>
               <div className={Style.info}>
                   <div className={Style.bk}>
+                    {i + 1}<p>BK</p>
 
                   </div>
                 </div>
