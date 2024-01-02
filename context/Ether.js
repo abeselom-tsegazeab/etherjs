@@ -28,25 +28,25 @@ export const EtherProvider = ({ children }) => {
 
       // top ten blocks
       const previosBlock = getCurrentBlock - 10;
-      const listTenBlock = []
+      const listTenBlock = [];
 
-      for (let i = getCurrentBlock;i > previosBlock;i--){
-        listTenBlock.push([i])
+      for (let i = getCurrentBlock; i > previosBlock; i--) {
+        listTenBlock.push([i]);
       }
 
       // get block details
       const getBlockDetails = listTenBlock.flat();
       setTopTenBlock(getBlockDetails);
-      
-      getBlockDetails.map(async (e)=>{
-        const singleBlockData = await provider.getBlock(e);
-        tenBlockWithDetails.push([singleBlockData])
-      })
 
-      // ether price 
+      getBlockDetails.map(async (e) => {
+        const singleBlockData = await provider.getBlock(e);
+        tenBlockWithDetails.push([singleBlockData]);
+      });
+
+      // ether price
       const gasPrice = await provider.getGasPrice();
-      const latestGasPrice =  ethers.utils.formatUnits(gasPrice)
-      console.log(latestGasPrice)
+      const latestGasPrice = ethers.utils.formatUnits(gasPrice);
+      setGasPrice(latestGasPrice);
     } catch (error) {
       console.log("Something went wrong while fetching data", error);
     }
@@ -56,7 +56,17 @@ export const EtherProvider = ({ children }) => {
   }, []);
 
   return (
-    <Etherscan.Provider value={{ data }}>
+    <Etherscan.Provider
+      value={{
+        data,
+        currentBlock,
+        topTenBlock,
+        yourBlockTsx,
+        transaction,
+        gasPrice,
+        provider,
+      }}
+    >
       <div>{children}</div>
     </Etherscan.Provider>
   );
