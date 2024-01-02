@@ -14,7 +14,6 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
   const { data,yourBlockTsx } = useEtherScan();
-  console.log(yourBlockTsx)
 
   const [userAccount, setUserAccount] = useState("");
   return (
@@ -44,6 +43,9 @@ export default function Home() {
               <div className={Style.info}>
                   <div className={Style.bk}>
                     {i + 1}<p>BK</p>
+                    <Link href={{pathname:'/block',query:e.number}}>
+
+                    </Link>
 
                   </div>
                 </div>
