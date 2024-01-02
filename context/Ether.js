@@ -43,7 +43,6 @@ export const EtherProvider = ({ children }) => {
         tenBlockWithDetails.push([singleBlockData]);
         setYourBlockTsx(tenBlockWithDetails)
       });
-      console.log()
       // ether price
       const gasPrice = await provider.getGasPrice();
       const latestGasPrice = ethers.utils.formatUnits(gasPrice);
