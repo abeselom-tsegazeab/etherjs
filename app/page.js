@@ -7,8 +7,8 @@ export default function Home() {
     <main className="">
       <NavBar/>
       <div>
-        hi
       </div>
+      
       <Footer/>
     </main>
   );
