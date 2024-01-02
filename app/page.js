@@ -11,6 +11,7 @@ import Style from "../styles/Home.module.css";
 import logo from "../public/assets/ether.png";
 import { useRouter } from "next/navigation";
 import Image from "next/image.js";
+import {ether} from '../public/assets/ethereum.png'
 
 export default function Home() {
   const router = useRouter();
@@ -95,7 +96,7 @@ export default function Home() {
                           {convertIntoEth(e[0].baseFeePerGas._hex)}{" "}
                           <span>ETH</span>
                         </p>
-                        <Image src={logo} className={Style.eth} alt='Ether Logo' width={10} height={10}/>
+                        <Image src={ether} className={Style.eth} alt='Ether Logo' width={10} height={10}/>
                       </div>
                     </div>
                   </div>
