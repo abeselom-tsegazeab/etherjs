@@ -41,7 +41,6 @@ export const EtherProvider = ({ children }) => {
       getBlockDetails.map(async (e)=>{
         const singleBlockData = await provider.getBlock(e);
         tenBlockWithDetails.push([singleBlockData])
-
       })
     } catch (error) {
       console.log("Something went wrong while fetching data", error);
