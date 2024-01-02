@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { ethers } from "ethers";
 
 const provider = new ethers.providers.JsonRpcProvider(
-    `https://mainnet.infura.io/v3/${apiKey}`
+    `https://mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_API_KEY}`
 )
 export const Etherscan = React.createContext()
 

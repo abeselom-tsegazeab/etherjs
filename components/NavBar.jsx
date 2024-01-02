@@ -17,7 +17,7 @@ const NavBar = () => {
   const [userAccount, setUserAccount] = useState("");
   const [balance, setBalance] = useState("");
   const [count, setCount] = useState("");
-  const [openModel, setOpenModel] = useState(true);
+  const [openModel, setOpenModel] = useState(false);
   const [price, setPrice] = useState([]);
   const [etherSupply, setEtherSupply] = useState([]);
   const [updatedPriceDate, setUpdatedPriceDate] = useState("");
