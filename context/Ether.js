@@ -25,7 +25,7 @@ export const EtherProvider = ({ children }) => {
       // getBlock gives the data in the current block
       const blockTransaction = await provider.getBlock(getCurrentBlock);
       setTransaction(blockTransaction.transactions);
-
+    
       // top ten blocks
       const previosBlock = getCurrentBlock - 10;
       const listTenBlock = [];
@@ -42,7 +42,7 @@ export const EtherProvider = ({ children }) => {
         const singleBlockData = await provider.getBlock(e);
         tenBlockWithDetails.push([singleBlockData]);
       });
-
+      
       // ether price
       const gasPrice = await provider.getGasPrice();
       const latestGasPrice = ethers.utils.formatUnits(gasPrice);
