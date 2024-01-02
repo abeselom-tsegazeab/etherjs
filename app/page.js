@@ -14,7 +14,6 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
   const { data, yourBlockTsx } = useEtherScan();
-  // console.log(yourBlockTsx)
   const [userAccount, setUserAccount] = useState("");
   return (
     <main className="">
@@ -38,17 +37,16 @@ export default function Home() {
           <h3>Latest Blocks</h3>
           <div className={Style.container_block}>
             {yourBlockTsx.map((e, i) => (
-              <div className={Style.oneBlock} key={i + 1}>
+              <div className={Style.oneBlock} key={i}>
                 <div className={Style.block}>
                   <div className={Style.info}>
                     <div className={Style.bk}>
-                      {i + 1}
                       <p>BK</p>
                       <Link href={{ pathname: "/block", query: e.number }}>
-                        {e.number}
+                        {e[0].number}
                       </Link>
                     </div>
-                    <p>{e.timestamp}</p>
+                    <p>{e[0].timestamp}</p>
                   </div>
                   <div>
                     <div className={Style.miner}>
@@ -58,10 +56,15 @@ export default function Home() {
                           <Link
                             href={{ pathname: "/account/", query: e.miner }}
                           >
-                            {e?.miner}...
+                            {e[0]?.miner.slice(0,35)}...
                           </Link>
                         </span>
                       </p>
+                      <span>
+                        <Link href={{pathname:'/account/',query:e.number}}>
+                          {/* {e[0].transaction.length} */}
+                        </Link>
+                      </span>
                     </div>
                   </div>
                 </div>
