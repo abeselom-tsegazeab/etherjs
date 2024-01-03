@@ -12,6 +12,7 @@ import logo from "../public/assets/ether.png";
 import { useRouter } from "next/navigation";
 import Image from "next/image.js";
 import {ether} from '../public/assets/ethereum.png'
+import { FaEthereum } from "react-icons/fa";
 
 export default function Home() {
   const router = useRouter();
@@ -31,6 +32,10 @@ export default function Home() {
     router.push(`/account?${address}`);
     address = "";
   };
+
+  const timeAgo = (timestamp)=>{
+    return new Date(timestamp)
+  }
 
   return (
     <main className="">
@@ -59,9 +64,9 @@ export default function Home() {
             <h3>Latest Blocks</h3>
             <div className={Style.container_block}>
               {yourBlockTsx.map((e, i) => (
-                <div className={`${Style.oneBlock} my-6 border border-[rgba(4,189,228,1)] rounded-[10px] p-3`} key={i}>
+                <div className={`${Style.oneBlock} my-6 border border-[rgba(4,189,228,1)] rounded-[10px] p-3 hover:shadow-lg drop-shadow-xl`} key={i}>
                   <div className={`${Style.block} w-full`}>
-                    <div className={`${Style.info} flex w-full items-center justify-between`}>
+                    <div className={`${Style.info} flex w-full items-center justify-between mb-1`}>
                       <div className={`${Style.bk} flex`}>
                           <p className="w-full">BK No:</p>
                           <Link href={{ pathname: "/block", query: e.number }}>
@@ -85,18 +90,21 @@ export default function Home() {
                         <span>
                           <Link
                             href={{ pathname: "/account/", query: e.number }}
-                          >
+                          >TSX:&nbsp;&nbsp;
                             {e[0].transactions.length}
                           </Link>
-                          &nbsp;TSX in 3 Sec
+                          &nbsp;
+                           in 3 Sec
                         </span>
                       </div>
-                      <div className={Style.reward}>
+                      <div className={`${Style.reward} w-fit flex`}>
                         <p>
+                          Reward:&nbsp;&nbsp;
                           {convertIntoEth(e[0].baseFeePerGas._hex)}{" "}
                           <span>ETH</span>
                         </p>
-                        <Image src={ether} className={Style.eth} alt='Ether Logo' width={10} height={10}/>
+                        <FaEthereum className="text-xl hover:text-[#fff]"/>
+
                       </div>
                     </div>
                   </div>
@@ -105,11 +113,11 @@ export default function Home() {
             </div>
           </div>
           {/* Transactions */}
-          <div className={Style.container_box}>
+          <div className={`${Style.container_box} `}>
             <h3>Latest Transaction</h3>
-            <div className={Style.container_block}>
+            <div className={`${Style.container_block} h-[1295px]  overflow-auto`}>
               {transaction.map((e, i) => (
-                <div className={Style.oneBlock} key={i}>
+                <div className={`${Style.oneBlock}  my-6 border border-[rgba(4,189,228,1)] rounded-[10px] p-3 hover:shadow-lg drop-shadow-xl`} key={i}>
                   <div className={Style.info}>
                     <div>
                       <p className={Style.bx}>TNX</p>
