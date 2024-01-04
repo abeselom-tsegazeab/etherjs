@@ -30,10 +30,34 @@ const page = () => {
   const [ERC1155, setERC1155] = useState([])
   const [blockMindedByAddress, setBlockMindedByAddress] = useState([])
   const [blockRangeTransaction, setBlockRangeTransaction] = useState([])
-  
 
+
+  const accountData = async ()=>{
+    try {
+      setAccount(acc)
+
+      if(open){
+        setOpen(false)
+      }
+
+      // account name
+      const ESN = await provider.lookupAddress(acc)
+
+      if(ESN === null){
+        setName(ESN);
+        setLoading(false)
+      }else{
+        setName(ESN)
+        setLoading(true)
+      }
+    } catch (error) {
+      console.log('Something went wrong')
+    }
+  }
   return (
-    <div>Acccount</div>
+    <div className={Style.accountDIV}>
+
+    </div>
   )
 }
 
