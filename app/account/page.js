@@ -52,7 +52,7 @@ const page = () => {
     await axios.get(`https://api.etherscan.io/api
     ?module=account
     &action=txlist
-    &address=0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC
+    &address=${acc}
     &startblock=0
     &endblock=99999999
     &page=1
