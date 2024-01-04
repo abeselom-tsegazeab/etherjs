@@ -59,10 +59,10 @@ export default function Home() {
         </div>
 
         {/* main section */}
-        <div className={Style.container}>
+        <div className={`${Style.container} !gird !md:grid-cols-2 !gird-cols-1`}>
           <div className={Style.container_box}>
             <h3>Latest Blocks</h3>
-            <div className={Style.container_block}>
+            <div className={`${Style.container_block} `}>
               {yourBlockTsx.map((e, i) => (
                 <div className={`${Style.oneBlock} my-6 border border-[rgba(4,189,228,1)] rounded-[10px] p-3 hover:shadow-lg drop-shadow-xl`} key={i}>
                   <div className={`${Style.block} w-full`}>

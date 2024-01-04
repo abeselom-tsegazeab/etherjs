@@ -154,7 +154,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className={Style.price}>
-        <div className={`w-full !grid md:!grid-cols-2 grid-rows-2 py-3 ${Style.price__box}`}>
+        <div className={`w-full !grid md:!grid-cols-2 grid-rows-2 py-3 lg:gap-4 !gap-1 ${Style.price__box}`}>
           <div className={Style.etherPrice}>
             <div>
             <FaEthereum className="text-5xl hover:text-[#fff]"/>
