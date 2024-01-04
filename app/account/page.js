@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { ethers } from "ethers";
 import Image from "next/image";
 
@@ -13,7 +13,8 @@ const page = () => {
   const { provider } = useEtherScan();
   const router = useRouter();
   const { query } = router;
-  const acc = Object.keys(query)[0];
+  // const acc = Object.keys(query)[0];
+  const acc = 'a;lf;lasf'
 
   const [account, setAccount] = useState("");
   const [balance, setBalance] = useState("");
@@ -39,18 +40,18 @@ const page = () => {
       }
 
       // account name
-      const ESN = await provider.lookupAddress(acc);
+      // const ESN = await provider.lookupAddress(acc);
 
-      if (ESN === null) {
-        setName(ESN);
-        setLoading(false);
-      } else {
-        setName(ESN);
-        setLoading(true);
-      }
+      // if (ESN === null) {
+      //   setName(ESN);
+      //   setLoading(false);
+      // } else {
+      //   setName(ESN);
+      //   setLoading(true);
+      // }
 
       // Transaction history
-    await axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
+    // await axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
 
 
     // Transaction by internal hash
@@ -62,7 +63,7 @@ const page = () => {
     }
   };
 
-  
+  accountData()
   
 
   return (
