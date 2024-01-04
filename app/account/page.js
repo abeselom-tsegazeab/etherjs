@@ -58,15 +58,15 @@ const page = () => {
     &page=1
     &offset=10
     &sort=asc
-    &apikey=${process.env.NEXT_PUBLIC_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
+    &apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
 
 
     // Transaction by history
     axios.get(`https://api.etherscan.io/api
-    ?module=account
-    &action=txlistinternal
-    &txhash=0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170
-    &apikey=YourApiKeyToken`)
+   ?module=account
+   &action=txlistinternal
+   &txhash=0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170
+   &apikey=${process.env.NEXT_ETHER_API_KEY}`)
   
     } catch (error) {
       console.log("Something went wrong");
