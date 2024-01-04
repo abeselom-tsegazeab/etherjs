@@ -91,10 +91,27 @@ const page = () => {
                     {name || "Miner"}: &nbsp; {account.slice(0,10)}...
                   </p>
                 </div>
+                <div className={Style.accountBalance}>
+                  <p className={Style.color}>
+                    Balance
+                  </p>
+                  <p>{balance} ETH</p>
+                </div>
+              </div>
+
+              <div className={Style.branding}>
+                <h2>
+                  Welcome <br/>
+                  Ether Finance Tracker
+                </h2>
+                <p>
+                  Hey, welcome to ether finance tracker, find out your ethereum {name || account.slice(0,10)} &nbsp; finance status
+                </p>
               </div>
             </div>
           </div>
         )}
+        {!loading ? <Table/> : ''}
       </div>
       )}
     </div>
