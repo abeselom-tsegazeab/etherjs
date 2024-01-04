@@ -56,7 +56,16 @@ const page = () => {
   }
   return (
     <div className={Style.accountDIV}>
-
+{open? (
+  <div className={Style.btnContainer}>
+    <h1>
+      {open ? "Welcome To Ether Finance":"Please wait we are loading data"}
+    </h1>
+    <button className={Style.openBtn} onClick={()=>accountData()}>
+    
+    </button>
+  </div>
+):('')}
     </div>
   )
 }
