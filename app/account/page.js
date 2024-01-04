@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -48,31 +49,20 @@ const page = () => {
         setLoading(true);
       }
 
-      // API Etherscan
-    await axios.get(`https://api.etherscan.io/api
-    ?module=account
-    &action=txlist
-    &address=${acc}
-    &startblock=0
-    &endblock=99999999
-    &page=1
-    &offset=10
-    &sort=asc
-    &apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
+      // Transaction history
+    await axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
 
 
-    // Transaction by history
-    axios.get(`https://api.etherscan.io/api
-   ?module=account
-   &action=txlistinternal
-   &txhash=0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170
-   &apikey=${process.env.NEXT_ETHER_API_KEY}`)
-  
+    // Transaction by internal hash
+    axios.get(`https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>console.log(res))
+  console.log('hi')
+   //
     } catch (error) {
       console.log("Something went wrong");
     }
   };
 
+  
   
 
   return (
