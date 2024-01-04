@@ -47,10 +47,17 @@ const page = () => {
         setName(ESN);
         setLoading(true);
       }
+
+      // API Etherscan
+      
+  
     } catch (error) {
       console.log("Something went wrong");
     }
   };
+
+  
+
   return (
     <div className={Style.accountDIV}>
       {open ? (
