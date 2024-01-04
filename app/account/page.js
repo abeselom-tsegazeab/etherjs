@@ -6,6 +6,10 @@ import  Image from 'next/image'
 
 
 
+import Style from '../../styles/Account.module.css'
+import { Etherscan } from '@/context/Ether'
+
+
 const page = () => {
   return (
     <div>Acccount</div>
