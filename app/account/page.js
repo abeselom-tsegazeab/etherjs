@@ -58,7 +58,7 @@ const page = () => {
     &page=1
     &offset=10
     &sort=asc
-    &apikey=${process.env.NEXT_ETHER_API_KEY}`)
+    &apikey=${process.env.NEXT_PUBLIC_API_KEY}`)
   
     } catch (error) {
       console.log("Something went wrong");
