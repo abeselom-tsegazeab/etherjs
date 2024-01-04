@@ -58,7 +58,11 @@ const page = () => {
     &page=1
     &offset=10
     &sort=asc
-    &apikey=${process.env.NEXT_PUBLIC_API_KEY}`)
+    &apikey=${process.env.NEXT_PUBLIC_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
+
+
+    // Transaction by history
+    axios.get(``)
   
     } catch (error) {
       console.log("Something went wrong");
