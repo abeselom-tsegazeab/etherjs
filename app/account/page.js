@@ -83,6 +83,16 @@ const page = () => {
                 {name || "Hello"}
               </div>
             </div>
+            <div className={Style.overviewBox}>
+              <div className={Style.overview}>
+                <div className={Style.overviewTitle}>
+                  <p>Overview</p>
+                  <p className={Style.miner}>
+                    {name || "Miner"}: &nbsp; {account.slice(0,10)}...
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
