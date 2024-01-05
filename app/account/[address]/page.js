@@ -29,7 +29,7 @@ const page = () => {
   const [ERC20, setERC20] = useState([]);
   const [ERC21, setERC21] = useState([]);
   const [ERC1155, setERC1155] = useState([]);
-  const [blockMindedByAddress, setBlockMindedByAddress] = useState([]);
+  const [blockMinedByAddress, setBlockMinedByAddress] = useState([]);
   const [blockRangeTransaction, setBlockRangeTransaction] = useState([]);
 
   const accountData = async () => {
@@ -58,20 +58,21 @@ const page = () => {
 
       // Transaction by internal hash
       const tsxByInternalHash = await axios.get(
-        `https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
+        `https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=${acc}&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
       );
       // .then((res)=>console.log(res))
       setInternalByAddress(tsxByInternalHash.data.result);
 
       // etherscan api erc20 token
       const ERC20Token =
-        await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2&address=0x4e83362442b8d1bec281594cea3050c8eb01311c&page=1&offset=100&startblock=0
+        await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2&address=${acc}&page=1&offset=100&startblock=0
    &endblock=27025780&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`);
       setERC20(ERC20Token.data.result);
 
       // Etherscan api mined block by address
-      const minedBlock = await axios.get(`https://api.etherscan.io/api?module=account&action=getminedblocks&address=0x9dd134d14d1e65f84b706d6f205cd5b1cd03a46b&blocktype=blocks&page=1&offset=10&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
-
+      const minedBlock = await axios.get(`https://api.etherscan.io/api?module=account&action=getminedblocks&address=${acc}&blocktype=blocks&page=1&offset=10&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
+      
+      setBlockMinedByAddress(minedBlock.data.result)
 
     } catch (error) {
       console.log(error);
