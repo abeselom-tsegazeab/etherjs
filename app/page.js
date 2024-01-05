@@ -81,7 +81,7 @@ export default function Home() {
                           <span>
                             Miner: &nbsp;&nbsp;{" "}
                             <Link
-                              href={{ pathname: "/account/", query: e.miner }}
+                              href={{ pathname: "/account/", query: e[0]?.miner }}
                             >
                               {e[0]?.miner.slice(0, 35)}...
                             </Link>

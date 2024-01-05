@@ -13,8 +13,8 @@ const page = () => {
   const { provider } = useEtherScan();
   const router = useRouter();
   const { query } = router;
-  // const acc = Object.keys(query)[0];
-  const acc = 'a;lf;lasf'
+  console.log(query)
+  // const acc = Object?.keys(query)[0];
 
   const [account, setAccount] = useState("");
   const [balance, setBalance] = useState("");
@@ -33,6 +33,8 @@ const page = () => {
 
   const accountData = async () => {
     try {
+   console.log('hi')
+
       setAccount(acc);
 
       if (open) {
@@ -40,30 +42,28 @@ const page = () => {
       }
 
       // account name
-      // const ESN = await provider.lookupAddress(acc);
+      const ESN = await provider.lookupAddress(acc);
 
-      // if (ESN === null) {
-      //   setName(ESN);
-      //   setLoading(false);
-      // } else {
-      //   setName(ESN);
-      //   setLoading(true);
-      // }
+      if (ESN === null) {
+        setName(ESN);
+        setLoading(false);
+      } else {
+        setName(ESN);
+        setLoading(true);
+      }
 
       // Transaction history
-    // await axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
+    await axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
 
 
     // Transaction by internal hash
     axios.get(`https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>console.log(res))
-  console.log('hi')
    //
     } catch (error) {
       console.log("Something went wrong");
     }
   };
 
-  accountData()
   
 
   return (
