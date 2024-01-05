@@ -1,22 +1,21 @@
 'use client'
 import React, { useState } from "react";
 import axios from "axios";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { ethers } from "ethers";
 import Image from "next/image";
-
+import Tabel from "@/components/Tabel";
 import Style from "../../../styles/Account.module.css";
 import { useEtherScan } from "@/context/Ether";
 import Loading from "@/components/Loading";
-
+import logo from '../../../public/assets/ethereum.png'
 const page = () => {
   const { provider } = useEtherScan();
   const router = useRouter();
   const { query } = router;
-  const searchParams = useSearchParams()
+  const params = useParams()
 
-  const acc = Object.values(searchParams);
-  console.log(searchParams.address)
+  const acc = params.address;
 
   const [account, setAccount] = useState("");
   const [balance, setBalance] = useState("");
@@ -35,7 +34,6 @@ const page = () => {
 
   const accountData = async () => {
     try {
-   console.log('hi')
 
       setAccount(acc);
 
@@ -45,24 +43,38 @@ const page = () => {
 
       // account name
       const ESN = await provider.lookupAddress(acc);
-
       if (ESN === null) {
         setName(ESN);
         setLoading(false);
       } else {
         setName(ESN);
-        setLoading(true);
+        setLoading(false);
       }
 
       // Transaction history
-    await axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>res.json()).then(()=> setAccountHistory(data))
+   const transactionHistory=  await axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
+    setAccountHistory(transactionHistory.data.result)
 
 
     // Transaction by internal hash
-    axios.get(`https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170&apikey=${process.env.NEXT_ETHER_API_KEY}`).then((res)=>console.log(res))
-   //
+    const tsxByInternalHash = await axios.get(`https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
+    // .then((res)=>console.log(res))
+    setInternalByAddress(tsxByInternalHash.data.result)
+
+   // etherscan api erc20 token
+   const ERC20Token = await axios.get(`https://api.etherscan.io/api
+   ?module=account
+   &action=tokentx
+   &contractaddress=0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2
+   &address=0x4e83362442b8d1bec281594cea3050c8eb01311c
+   &page=1
+   &offset=100
+   &startblock=0
+   &endblock=27025780
+   &sort=asc
+   &apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
     } catch (error) {
-      console.log("Something went wrong");
+      console.log(error);
     }
   };
 
@@ -80,11 +92,11 @@ const page = () => {
           <button
             className={Style.openBtn}
             onClick={() => accountData()}
-          ></button>
+          >Account</button>
         </div>
       ) : (
       <div>
-         {loading ? (<div className={Style.loading}>
+         {false ? (<div className={Style.loading}>
           <Loading/>
         </div>):(
           <div className={Style.container}>
@@ -96,6 +108,7 @@ const page = () => {
                 </p>
               </div>
               <div className={Style.owner}>
+                
                 <p onClick={()=>accountData()}>Owner</p>
                 {name || "Hello"}
               </div>
@@ -128,7 +141,7 @@ const page = () => {
             </div>
           </div>
         )}
-        {!loading ? <Table/> : ''}
+        {!loading ? <Tabel/> : ''}
       </div>
       )}
     </div>
