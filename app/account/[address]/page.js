@@ -1,11 +1,11 @@
 'use client'
 import React, { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ethers } from "ethers";
 import Image from "next/image";
 
-import Style from "../../styles/Account.module.css";
+import Style from "../../../styles/Account.module.css";
 import { useEtherScan } from "@/context/Ether";
 import Loading from "@/components/Loading";
 
@@ -13,8 +13,10 @@ const page = () => {
   const { provider } = useEtherScan();
   const router = useRouter();
   const { query } = router;
-  console.log(query)
-  // const acc = Object?.keys(query)[0];
+  const searchParams = useSearchParams()
+
+  const acc = Object.values(searchParams);
+  console.log(searchParams.address)
 
   const [account, setAccount] = useState("");
   const [balance, setBalance] = useState("");

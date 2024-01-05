@@ -33,10 +33,7 @@ export default function Home() {
     address = "";
   };
 
-  const timeAgo = (timestamp)=>{
-    return new Date(timestamp)
-  }
-
+ 
   return (
     <main className="">
       <NavBar />
@@ -69,7 +66,7 @@ export default function Home() {
                     <div className={`${Style.info} flex w-full items-center justify-between mb-1`}>
                       <div className={`${Style.bk} flex`}>
                           <p className="w-full">BK No:</p>
-                          <Link href={{ pathname: "/block", query: e.number }}>
+                          <Link href={{ pathname: "/block", query: e[0].number }}>
                             {e[0].number}
                           </Link>
                       </div>
@@ -81,7 +78,7 @@ export default function Home() {
                           <span>
                             Miner: &nbsp;&nbsp;{" "}
                             <Link
-                              href={{ pathname: "/account/", query: e[0]?.miner }}
+                              href={{ pathname: `/account/${e[0].miner}` }}
                             >
                               {e[0]?.miner.slice(0, 35)}...
                             </Link>
