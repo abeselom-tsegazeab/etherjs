@@ -74,6 +74,18 @@ const page = () => {
       
       setBlockMinedByAddress(minedBlock.data.result)
 
+      // Etherscan api block mined by range
+
+      const blockMinedByRange = await axios.get(`https://api.etherscan.io/api
+      ?module=account
+      &action=txlistinternal
+      &startblock=13481773
+      &endblock=13491773
+      &page=1
+      &offset=10
+      &sort=asc
+      &apikey=YourApiKeyToken`)
+
     } catch (error) {
       console.log(error);
     }
