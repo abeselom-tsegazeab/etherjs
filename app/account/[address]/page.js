@@ -78,6 +78,13 @@ const page = () => {
 
       const blockMinedByRange = await axios.get(`https://api.etherscan.io/api?module=account&action=txlistinternal&startblock=13481773&endblock=13491773&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
 
+      setBlockMinedByAddress(blockMinedByRange.data.result)
+
+      // Etherscan ERC21 TOKEN
+
+      const ERC21Token = axios.get(`https://api.etherscan.io/api?module=account&action=tokennfttx&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d&address=${acc}
+      &page=1&offset=100&startblock=0&endblock=27025780&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
+
     } catch (error) {
       console.log(error);
     }
