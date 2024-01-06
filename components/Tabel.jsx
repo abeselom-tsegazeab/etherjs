@@ -24,8 +24,7 @@ const Tabel = ({
   accountData,
 }) => {
   const [historyAccount, setHistoryAccount] = useState(true);
-  const [addressInternalTransaction, setAddressInternalTransaction] =
-    useState(false);
+  const [addressInternalTransaction, setAddressInternalTransaction] = useState(false);
   const [openERC20, setOpenERC20] = useState(false);
   const [addressByMinedeBlock, setAddressByMinedeBlock] = useState(false);
   const [TransactionRangeBlock, setTransactionRangeBlock] = useState(false);
