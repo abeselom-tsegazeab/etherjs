@@ -36,7 +36,6 @@ export default function Home() {
  
   return (
     <main className="">
-      <NavBar />
       <main className="w-[90%]  m-auto p-5">
         <div className={`${Style.header}`}>
           <form className={Style.accountAddress}>
@@ -129,7 +128,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Footer />
     </main>
   );
 }

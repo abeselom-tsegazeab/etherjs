@@ -114,7 +114,7 @@ const page = () => {
               : "Please wait we are loading data"}
           </h1>
           <button className={Style.openBtn} onClick={() => accountData()}>
-            Account
+            Click Me
           </button>
         </div>
       ) : (
