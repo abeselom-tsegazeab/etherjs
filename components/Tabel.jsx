@@ -103,7 +103,7 @@ const Tabel = ({
           Internal
         </button>
         <button className={Style.btn} onClick={(e) => tabs(e)}>
-          Trans
+          Tsx
         </button>
 
         <button className={Style.btn} onClick={(e) => tabs(e)}>
