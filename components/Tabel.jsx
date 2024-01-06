@@ -15,7 +15,7 @@ import ERC1155Token from "./ERC1155Token";
 const Tabel = ({
   accountHistory,
   totalTransaction,
-  internalByAddrss,
+  internalByAddress,
   ERC20,
   blockMindedByAddress,
   blockRangeTransaction,
@@ -139,7 +139,7 @@ const Tabel = ({
 
       {addressInternalTransaction ? (
         <Internal
-          internalByAddrss={internalByAddrss}
+          internalByAddress={internalByAddress}
           handleClick={accountData}
         />
       ) : (

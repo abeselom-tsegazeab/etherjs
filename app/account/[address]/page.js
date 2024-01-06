@@ -70,24 +70,35 @@ const page = () => {
       setERC20(ERC20Token.data.result);
 
       // Etherscan api mined block by address
-      const minedBlock = await axios.get(`https://api.etherscan.io/api?module=account&action=getminedblocks&address=${acc}&blocktype=blocks&page=1&offset=10&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
-      
-      setBlockMinedByAddress(minedBlock.data.result)
+      const minedBlock = await axios.get(
+        `https://api.etherscan.io/api?module=account&action=getminedblocks&address=${acc}&blocktype=blocks&page=1&offset=10&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
+      );
+
+      setBlockMinedByAddress(minedBlock.data.result);
 
       // Etherscan api block mined by range
 
-      const blockMinedByRange = await axios.get(`https://api.etherscan.io/api?module=account&action=txlistinternal&startblock=13481773&endblock=13491773&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
+      const blockMinedByRange = await axios.get(
+        `https://api.etherscan.io/api?module=account&action=txlistinternal&startblock=13481773&endblock=13491773&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
+      );
 
-      setBlockMinedByAddress(blockMinedByRange.data.result)
+      setBlockRangeTransaction(blockMinedByRange.data.result);
 
       // Etherscan ERC21 TOKEN
 
-      const ERC21Token = axios.get(`https://api.etherscan.io/api?module=account&action=tokennfttx&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d&address=${acc}
-      &page=1&offset=100&startblock=0&endblock=27025780&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
-        setERC21(ERC21Token.data.result)
+      const ERC21Token =
+        axios.get(`https://api.etherscan.io/api?module=account&action=tokennfttx&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d&address=${acc}
+      &page=1&offset=100&startblock=0&endblock=27025780&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`);
+      setERC21(ERC21Token.data.result);
 
-      const ERC1155Token = await axios.get(`https://api.etherscan.io/api?module=account&action=token1155tx&contractaddress=0x76be3b62873462d2142405439777e971754e8e77&address=${acc}&page=1&offset=100&startblock=0&endblock=99999999&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
-      setERC1155(ERC1155Token.data.result)
+      const ERC1155Token = await axios.get(
+        `https://api.etherscan.io/api?module=account&action=token1155tx&contractaddress=0x76be3b62873462d2142405439777e971754e8e77&address=${acc}&page=1&offset=100&startblock=0&endblock=99999999&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
+      );
+      setERC1155(ERC1155Token.data.result);
+
+      // Get Transaction count
+      const totalTransaction = await provider.getTransactionCount(acc);
+      setTotalTransaction(totalTransaction);
     } catch (error) {
       console.log(error);
     }
@@ -108,7 +119,7 @@ const page = () => {
         </div>
       ) : (
         <div>
-          {false ? (
+          {true ? (
             <div className={Style.loading}>
               <Loading />
             </div>
@@ -154,7 +165,21 @@ const page = () => {
               </div>
             </div>
           )}
-          {!loading ? <Tabel /> : ""}
+          {!loading ? (
+            <Tabel
+              accountHistory={accountHistory}
+              totalTransaction={totalTransaction}
+              internalByAddrss={internalByAddress}
+              ERC1155={ERC1155}
+              ERC20={ERC20}
+              ERC21={ERC21}
+              accountData={accountData}
+              blockMindedByAddress={blockMinedByAddress}
+              blockRangeTransaction={blockRangeTransaction}
+            />
+          ) : (
+            ""
+          )}
         </div>
       )}
     </div>
