@@ -84,7 +84,10 @@ const page = () => {
 
       const ERC21Token = axios.get(`https://api.etherscan.io/api?module=account&action=tokennfttx&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d&address=${acc}
       &page=1&offset=100&startblock=0&endblock=27025780&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
+        setERC21(ERC21Token)
 
+      const ERC1155Token = await axios.get(`https://api.etherscan.io/api?module=account&action=token1155tx&contractaddress=0x76be3b62873462d2142405439777e971754e8e77&address=${acc}&page=1&offset=100&startblock=0&endblock=99999999&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`)
+      console.log(ERC1155Token)
     } catch (error) {
       console.log(error);
     }
