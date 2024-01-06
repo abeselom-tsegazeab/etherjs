@@ -50,6 +50,10 @@ const page = () => {
         setLoading(false);
       }
 
+      const accountBalance = await provider.getBalance(acc);
+      const showBalance = ethers.utils.formatEther(accountBalance);
+      setBalance(showBalance);
+
       // Transaction history
       const transactionHistory = await axios.get(
         `https://api.etherscan.io/api?module=account&action=txlist&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
@@ -149,6 +153,10 @@ const page = () => {
                   <div className={Style.accountBalance}>
                     <p className={Style.color}>Balance</p>
                     <p>{balance} ETH</p>
+                  </div>
+                  <div className={Style.accountValue}>
+                    <p className={Style.color}>Value</p>
+                    <p>$ {balance * 1057.28}</p>
                   </div>
                 </div>
 
