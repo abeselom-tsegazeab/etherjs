@@ -119,11 +119,12 @@ const page = () => {
         </div>
       ) : (
         <div>
-          {true ? (
-            <div className={Style.loading}>
+          {loading ? (
+            <div className="w-[100vw] h-[100vh] relative" >
               <Loading />
             </div>
-          ) : (
+          ) :
+           (
             <div className={Style.container}>
               <div className={Style.box}>
                 <div className={Style.account}>
@@ -164,7 +165,8 @@ const page = () => {
                 </div>
               </div>
             </div>
-          )}
+          )
+        }
           {!loading ? (
             <Tabel
               accountHistory={accountHistory}
