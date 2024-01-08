@@ -14,7 +14,12 @@ const Transaction = ({accountHistory,handleClick}) => {
         </div>
         <div className={Style.tableInfo}>
           {
-            
+            accountHistory.map((tsx,index)=>(
+              <div className={Style.transHash} key={index}>
+                <AiFillEye/>
+                <p>{tsx.hash.slice(0,35)}...</p>
+              </div>
+            ))
           }
         </div>
       </div>
