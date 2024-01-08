@@ -144,7 +144,7 @@ const page = () => {
               </div>
               <div className={Style.overviewBox}>
                 <div className={Style.overview}>
-                  <div className={Style.overviewTitle}>
+                  <div className={`${Style.overviewTitle} mb-4`}>
                     <p>Overview</p>
                     <p className={Style.miner}>
                       {name || "Miner"}: &nbsp; {account.slice(0, 10)}...
