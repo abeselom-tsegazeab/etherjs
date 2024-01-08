@@ -53,4 +53,27 @@ transition: all .2s ease;
 .dataTable::-webkit-scrollbar-track{
     background-color: rgb(0, 110, 255);
     outline: 1px solid #fff;
+    border-radius: 1rem;
 }
+
+.tableTitle p{
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.transHash{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.toLink{
+    cursor: pointer;
+    color: #fff;
+}
+
+/*// ERC20  */
+
+
+
