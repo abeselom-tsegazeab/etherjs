@@ -111,7 +111,7 @@ const Transaction = ({ accountHistory, handleClick }) => {
           {accountHistory.map((tsx, index) => (
             <div className={Style.transHash} key={index}>
               <p>
-               {tsx.value.slice(0,5)}...
+               {tsx.value.slice(0,5)}...ETH
               </p>
             </div>
           ))}

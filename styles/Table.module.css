@@ -41,7 +41,7 @@ transition: all .2s ease;
     display: grid;
     grid-template-columns: 15rem repeat(16,5rem);
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
     font-size: 13px;
     overflow-x: auto;
     font-weight: 400;
