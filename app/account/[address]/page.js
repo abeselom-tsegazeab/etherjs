@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { ethers } from "ethers";
 import Image from "next/image";
 import Tabel from "@/components/Tabel";
@@ -11,8 +11,6 @@ import Loading from "@/components/Loading";
 import logo from "../../../public/assets/ethereum.png";
 const page = () => {
   const { provider } = useEtherScan();
-  const router = useRouter();
-  const { query } = router;
   const params = useParams();
 
   const acc = params.address;

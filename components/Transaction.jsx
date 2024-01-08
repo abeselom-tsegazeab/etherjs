@@ -1,16 +1,15 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState,  } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { ethers } from "ethers";
 
 //Imternal
 import StyleTransaction from "../styles/block.module.css";
 import { useEtherScan } from "@/context/Ether";
+import { useParams } from "next/navigation";
 const Transaction = () => {
   const { provider } = useEtherScan()
-  const router = useRouter();
-  const { query } = router;
-  const hash = Object.keys(query)[0];
+  const params = useParams();
+  const hash = params.hash
 
   const transDetail = [];
   const [transactionData, setTransactionData] = useState(transDetail);
