@@ -1,7 +1,7 @@
 .table{
-    background-color: rgb(0, 110, 255);
+    background-color: rgba(4,189,228,1);
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     z-index: 2000;
     width: 95%;
     margin: auto;
@@ -14,7 +14,7 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid white;
     padding-bottom: .5rem;
     justify-content: space-between;
 }
@@ -22,7 +22,7 @@
 .btn{
 background-color: transparent;
 border: 0;
-color: #fff;
+color: white;
 cursor: pointer;
 transition: all .2s ease;
 }
@@ -42,7 +42,7 @@ transition: all .2s ease;
     grid-template-columns: 15rem repeat(16,5rem);
     align-items: center;
     gap: 1rem;
-    font-size: 10px;
+    font-size: 15px;
     overflow-x: auto;
 }
 
@@ -58,25 +58,28 @@ transition: all .2s ease;
 
 .dataTable::-webkit-scrollbar-track{
     background-color: rgb(0, 110, 255);
-    outline: 1px solid #fff;
+    outline: 1px solid ;
     border-radius: 1rem;
 }
 
 .tableTitle p{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
-    color: #fff;
+    color: white;
 }
 
 .transHash{
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .1rem;
+    font-size: 15px;
+    color: #fff;
+    width: fit-content;
 }
 
 .toLink{
     cursor: pointer;
-    color: #fff;
+    color: white;
 }
 
 /*// ERC20  */
