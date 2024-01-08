@@ -117,6 +117,130 @@ const Transaction = ({ accountHistory, handleClick }) => {
           ))}
         </div>
       </div>
+
+
+            {/* Block Hash */}
+            <div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Value</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.blockHash.slice(0,10)}...
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+      {/* Confirmation */}
+
+      <div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Confirmation</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.confirmation}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+{/* cummulative gas used */}
+
+<div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Cummulative Gas</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.cumulativeGasUsed}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+
+{/* Gas */}
+
+<div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Gas</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.gas}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+{/* Nonce */}
+<div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Nonce</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.nonce}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+{/* Index */}
+
+<div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Index</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.transactionIndex}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+{/* Status */}
+
+<div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Status</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.txreceipt_status}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
     </div>
   );
 };
