@@ -146,7 +146,7 @@ const Transaction = ({ accountHistory, handleClick }) => {
           {accountHistory.map((tsx, index) => (
             <div className={Style.transHash} key={index}>
               <p>
-               {tsx.confirmation}
+               {tsx.confirmations}
               </p>
             </div>
           ))}
