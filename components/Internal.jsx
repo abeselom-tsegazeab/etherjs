@@ -16,10 +16,10 @@ const Internal = ({internalByAddress,handleClick}) => {
           <p>Hash</p>
         </div>
         <div className={Style.tableInfo}>
-          {internalByAddress.map((e,i)=>(
+          {internalByAddress?.map((e,i)=>(
             <div className={Style.transHash} key={i}>
               <AiFillEye/>
-              <p>{e.hash.slice(0,35)}</p>
+              <p>{e.hash.slice(0,35)}...</p>
             </div>
           ))}
         </div>
