@@ -1,35 +1,31 @@
-import React,{useEffect,useState} from 'react'
-import { FaFilter } from 'react-icons/fa'
-import { AiFillEye } from 'react-icons/ai'
-import Link from 'next/link'
+import React, { useEffect, useState } from "react";
+import { AiFillEye } from "react-icons/ai";
+import Link from "next/link";
 
+import Style from "@/styles/Table.module.css";
 
-import Style from '@/styles/Table.module.css'
-
-
-
-const Internal = ({internalByAddress,handleClick}) => {
+const Internal = ({ internalByAddress, handleClick }) => {
+  console.log(internalByAddress);
   return (
     <div className={Style.dataTable}>
-
       {/* Hash */}
       <div className={Style.column}>
         <div className={Style.tableTitle}>
           <p>Hash</p>
         </div>
         <div className={Style.tableInfo}>
-          {internalByAddress?.map((e,i)=>(
+          {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
-              <AiFillEye/>
-              <p>{e.hash.slice(0,35)}...</p>
+              <AiFillEye />
+              <p>{e.hash.slice(0, 20)}...</p>
             </div>
           ))}
         </div>
       </div>
 
-            {/* Block Number */}
+      {/* Block Number */}
 
-            <div className={Style.column}>
+      <div className={Style.column}>
         <div className={Style.tableTitle}>
           <p>Block No</p>
         </div>
@@ -37,7 +33,7 @@ const Internal = ({internalByAddress,handleClick}) => {
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
               <p>
-                <Link href={{pathname:`/block/${e.blockNumber}`}}>
+                <Link href={{ pathname: `/block/${e.blockNumber}` }}>
                   {e.blockNumber}
                 </Link>
               </p>
@@ -55,9 +51,7 @@ const Internal = ({internalByAddress,handleClick}) => {
         <div className={Style.tableInfo}>
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
-              <p>
-               {e.traceId}
-              </p>
+              <p>{e.traceId}</p>
             </div>
           ))}
         </div>
@@ -72,16 +66,14 @@ const Internal = ({internalByAddress,handleClick}) => {
         <div className={Style.tableInfo}>
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
-              <p>
-               {e.timeStamp}
-              </p>
+              <p>{e.timeStamp}</p>
             </div>
           ))}
         </div>
       </div>
 
-{/* From */}
-<div className={Style.column}>
+      {/* From */}
+      <div className={Style.column}>
         <div className={Style.tableTitle}>
           <p>From</p>
         </div>
@@ -89,10 +81,8 @@ const Internal = ({internalByAddress,handleClick}) => {
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
               <p>
-                <Link href={{pathname:`/account/${e.from}`}}>
-                  <p onClick={handleClick}>
-                  {e.from.slice(0,20)}...
-                  </p>
+                <Link href={{ pathname: `/account/${e.from}` }}>
+                  <p onClick={handleClick}>{e.from.slice(0, 10)}...</p>
                 </Link>
               </p>
             </div>
@@ -100,110 +90,82 @@ const Internal = ({internalByAddress,handleClick}) => {
         </div>
       </div>
 
+      {/* To */}
 
-{/* To */}
-
-
-<div className={Style.column}>
+      <div className={Style.column}>
         <div className={Style.tableTitle}>
           <p>To</p>
         </div>
         <div className={Style.tableInfo}>
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
-              <p>
-              
-                  {e.to.slice(0,20)}...
-               
-              </p>
+              <p>{e.to.slice(0, 10)}...</p>
             </div>
           ))}
         </div>
       </div>
 
-{/* value */}
+      {/* value */}
 
-
-<div className={Style.column}>
+      <div className={Style.column}>
         <div className={Style.tableTitle}>
           <p>Value</p>
         </div>
         <div className={Style.tableInfo}>
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
-              <p>
-              
-                  {e.value.slice(0,20)}...
-               
-              </p>
+              <p>{e.value.slice(0, 7)}...ETH</p>
             </div>
           ))}
         </div>
       </div>
 
-{/* Gas used */}
+      {/* Gas used */}
 
-
-<div className={Style.column}>
+      <div className={Style.column}>
         <div className={Style.tableTitle}>
           <p>Gas Used</p>
         </div>
         <div className={Style.tableInfo}>
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
-              <p>
-              
-                  {e.gasUsed.slice(0,20)}
-               
-              </p>
+              <p>{e.gasUsed.slice(0, 20)}</p>
             </div>
           ))}
         </div>
       </div>
 
+      {/* isError */}
 
-{/* isError */}
-
-<div className={Style.column}>
+      <div className={Style.column}>
         <div className={Style.tableTitle}>
           <p>isError</p>
         </div>
         <div className={Style.tableInfo}>
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
-              <p>
-              
-                  {e.isError}
-               
-              </p>
+              <p>{e.isError}</p>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Gas */}
 
-
-{/* Gas */}
-
-<div className={Style.column}>
+      <div className={Style.column}>
         <div className={Style.tableTitle}>
           <p>Gas</p>
         </div>
         <div className={Style.tableInfo}>
           {internalByAddress?.map((e, i) => (
             <div className={Style.transHash} key={i}>
-              <p>
-              
-                  {e.gas}
-               
-              </p>
+              <p>{e.gas}</p>
             </div>
           ))}
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Internal
+export default Internal;

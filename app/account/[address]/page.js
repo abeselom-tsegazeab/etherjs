@@ -59,9 +59,10 @@ const page = () => {
       setAccountHistory(transactionHistory.data.result);
 
       // Transaction by internal hash
-      const tsxByInternalHash = await axios.get(
-        `https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=${acc}&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
-      );
+      const tsxByInternalHash = await  axios.get(`https://api.etherscan.io/api?module=account&action=txlistinternal&address=${acc}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
+      )
+      
+    
       setInternalByAddress(tsxByInternalHash.data.result);
 
       // etherscan api erc20 token
@@ -176,7 +177,7 @@ const page = () => {
             <Tabel
               accountHistory={accountHistory}
               totalTransaction={totalTransaction}
-              internalByAddrss={internalByAddress}
+              internalByAddress={internalByAddress}
               ERC1155={ERC1155}
               ERC20={ERC20}
               ERC21={ERC21}
