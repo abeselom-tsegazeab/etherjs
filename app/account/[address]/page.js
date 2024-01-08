@@ -62,7 +62,6 @@ const page = () => {
       const tsxByInternalHash = await axios.get(
         `https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=${acc}&apikey=${process.env.NEXT_PUBLIC_ETHER_API_KEY}`
       );
-      // .then((res)=>console.log(res))
       setInternalByAddress(tsxByInternalHash.data.result);
 
       // etherscan api erc20 token
