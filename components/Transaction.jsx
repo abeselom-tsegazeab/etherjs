@@ -86,7 +86,7 @@ const Transaction = ({ accountHistory, handleClick }) => {
       {/* To */}
       <div className={Style.column}>
         <div className={Style.tableTitle}>
-          <p>Block</p>
+          <p>To</p>
         </div>
         <div className={Style.tableInfo}>
           {accountHistory.map((tsx, index) => (
@@ -118,11 +118,28 @@ const Transaction = ({ accountHistory, handleClick }) => {
         </div>
       </div>
 
+      {/* gas price */}
+
+      <div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Gas Price</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.gasPrice}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
 
             {/* Block Hash */}
             <div className={Style.column}>
         <div className={Style.tableTitle}>
-          <p>Value</p>
+          <p>BlockHash</p>
         </div>
         <div className={Style.tableInfo}>
           {accountHistory.map((tsx, index) => (
@@ -189,6 +206,26 @@ const Transaction = ({ accountHistory, handleClick }) => {
           ))}
         </div>
       </div>
+
+
+      {/* Gas  Used*/}
+
+<div className={Style.column}>
+        <div className={Style.tableTitle}>
+          <p>Gas Used</p>
+        </div>
+        <div className={Style.tableInfo}>
+          {accountHistory.map((tsx, index) => (
+            <div className={Style.transHash} key={index}>
+              <p>
+               {tsx.gasUsed}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
 {/* Nonce */}
 <div className={Style.column}>
         <div className={Style.tableTitle}>
