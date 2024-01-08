@@ -1,7 +1,7 @@
 .table{
     background-color: rgba(4,189,228,1);
     color: #fff;
-    font-size: 20px;
+    font-size: 16px;
     z-index: 2000;
     width: 95%;
     margin: auto;
@@ -42,13 +42,13 @@ transition: all .2s ease;
     grid-template-columns: 15rem repeat(16,5rem);
     align-items: center;
     gap: 1rem;
-    font-size: 15px;
+    font-size: 13px;
     overflow-x: auto;
 }
 
-.dataTable::-wevkit-scrollbar{
+/* .dataTable::-webkit-scrollbar{
     width: 1rem;
-}
+} */
 
 .dataTable::-webkit-scrollbar-track{
     border-radius: 1rem;
@@ -63,7 +63,7 @@ transition: all .2s ease;
 }
 
 .tableTitle p{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: white;
 }
