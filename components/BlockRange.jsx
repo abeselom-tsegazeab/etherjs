@@ -142,12 +142,12 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
 
           <div className={Style.column}>
             <div className={Style.tableTitle}>
-              <p>Confirmation</p>
+              <p>Input</p>
             </div>
             <div className={Style.tableInfo}>
               {accountHistory.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
-                  <p>{tsx.confirmations}</p>
+                  <p>{tsx.input ? tsx.input : "No Data!" }</p>
                 </div>
               ))}
             </div>
