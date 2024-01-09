@@ -138,7 +138,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
             </div>
           </div>
 
-          {/* Confirmation */}
+          {/* Input */}
 
           <div className={Style.column}>
             <div className={Style.tableTitle}>
@@ -153,37 +153,37 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
             </div>
           </div>
 
-          {/* cummulative gas used */}
+          {/*  Type */}
 
           <div className={Style.column}>
             <div className={Style.tableTitle}>
-              <p>Cummulative Gas</p>
+              <p>Type</p>
             </div>
             <div className={Style.tableInfo}>
               {accountHistory.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
-                  <p>{tsx.cumulativeGasUsed}</p>
+                  <p>{tsx.type}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Gas */}
+          {/* TraceId */}
 
           <div className={Style.column}>
             <div className={Style.tableTitle}>
-              <p>Gas</p>
+              <p>TraceId</p>
             </div>
             <div className={Style.tableInfo}>
               {accountHistory.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
-                  <p>{tsx.gas}</p>
+                  <p>{tsx.traceId}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Gas  Used*/}
+          {/* isError*/}
 
           <div className={Style.column}>
             <div className={Style.tableTitle}>
