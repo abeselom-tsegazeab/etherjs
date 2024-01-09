@@ -126,7 +126,7 @@ const Tabel = ({
         </button>
       </div>
 
-      <div className={Style.numberOfTrans}>
+      <div className={`${Style.numberOfTrans} `}>
         <FaFilter />
         <p>
           latest 10 from a total of <span>{totalTransaction}</span> transaction
