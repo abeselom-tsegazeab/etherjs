@@ -183,64 +183,37 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
             </div>
           </div>
 
-          {/* isError*/}
+          {/* isError */}
 
           <div className={Style.column}>
             <div className={Style.tableTitle}>
-              <p>Gas Used</p>
+              <p>isError</p>
             </div>
             <div className={Style.tableInfo}>
               {accountHistory.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
-                  <p>{tsx.gasUsed}</p>
+                  <p>{tsx.isError}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Nonce */}
+          {/* Contract Address */}
           <div className={Style.column}>
             <div className={Style.tableTitle}>
-              <p>Nonce</p>
+              <p>Contract Address</p>
             </div>
             <div className={Style.tableInfo}>
               {accountHistory.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
-                  <p>{tsx.nonce}</p>
+                  <p>{tsx.contractAddress ? tsx.contractAddress :"No Address!"}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Index */}
 
-          <div className={Style.column}>
-            <div className={Style.tableTitle}>
-              <p>Index</p>
-            </div>
-            <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
-                <div className={Style.transHash} key={index}>
-                  <p>{tsx.transactionIndex}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Status */}
-
-          <div className={Style.column}>
-            <div className={Style.tableTitle}>
-              <p>Status</p>
-            </div>
-            <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
-                <div className={Style.transHash} key={index}>
-                  <p>{tsx.txreceipt_status}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+   
         </div>
       )}
     </div>
