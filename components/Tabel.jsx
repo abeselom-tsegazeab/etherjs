@@ -30,11 +30,11 @@ const Tabel = ({
   const [TransactionRangeBlock, setTransactionRangeBlock] = useState(false);
   const [openERC21, setOpenERC21] = useState(false);
   const [openERC1155, setOpenERC1155] = useState(false);
-
+  const [isActive,setIsActive] = useState(1)
   const tabs = (e) => {
     const buttonText = e.target.innerText;
-    console.log(buttonText);
     if (buttonText === "Transaction") {
+      setIsActive(1)
       setHistoryAccount(true);
       setAddressInternalTransaction(false);
       setTransactionRangeBlock(false);
@@ -43,6 +43,7 @@ const Tabel = ({
       setOpenERC1155(false);
       setAddressByMinedeBlock(false);
     } else if (buttonText === "Internal") {
+      setIsActive(2)
       setAddressInternalTransaction(true);
       setHistoryAccount(false);
       setTransactionRangeBlock(false);
@@ -50,7 +51,8 @@ const Tabel = ({
       setOpenERC21(false);
       setOpenERC1155(false);
       setAddressByMinedeBlock(false);
-    } else if (buttonText === "Trans") {
+    } else if (buttonText === "Tsx") {
+      setIsActive(3)
       setTransactionRangeBlock(true);
       setAddressInternalTransaction(false);
       setHistoryAccount(false);
@@ -59,6 +61,7 @@ const Tabel = ({
       setOpenERC1155(false);
       setAddressByMinedeBlock(false);
     } else if (buttonText === "ERC-20") {
+      setIsActive(4)
       setOpenERC20(true);
       setAddressInternalTransaction(false);
       setHistoryAccount(false);
@@ -67,6 +70,7 @@ const Tabel = ({
       setOpenERC1155(false);
       setAddressByMinedeBlock(false);
     } else if (buttonText === "ERC-21") {
+      setIsActive(5)
       setOpenERC21(true);
       setAddressInternalTransaction(false);
       setHistoryAccount(false);
@@ -75,6 +79,7 @@ const Tabel = ({
       setOpenERC1155(false);
       setAddressByMinedeBlock(false);
     } else if (buttonText === "ERC1155") {
+      setIsActive(6)
       setOpenERC1155(true);
       setAddressInternalTransaction(false);
       setHistoryAccount(false);
@@ -83,6 +88,7 @@ const Tabel = ({
       setOpenERC21(false);
       setAddressByMinedeBlock(false);
     } else if (buttonText === "Mined") {
+      setIsActive(7)
       setAddressByMinedeBlock(true);
       setAddressInternalTransaction(false);
       setHistoryAccount(false);
@@ -96,26 +102,26 @@ const Tabel = ({
   return (
     <div className={Style.table}>
       <div className={Style.table__head}>
-        <button className={Style.btn} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 1 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           Transaction
         </button>
-        <button className={Style.btn} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 2 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           Internal
         </button>
-        <button className={Style.btn} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 3 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           Tsx
         </button>
 
-        <button className={Style.btn} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 4 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           Mined
         </button>
-        <button className={Style.btn} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 5 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           ERC-20
         </button>
-        <button className={Style.btn} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 6 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           ERC-21
         </button>
-        <button className={Style.btn} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 7 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           ERC1155
         </button>
       </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import Link from "next/link";
 
+
+import Style from '@/styles/Table.module.css'
 const BlockRange = ({ blockRangeTransaction, handleClick }) => {
   return (
     <div>
@@ -10,14 +12,15 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
           <p>Sorry There is no data</p>
         </div>
       ) : (
-        <div className={Style.dataTable}>
+        <div className={`${Style.dataTable}`}>
+          
           {/*  hash */}
           <div className={Style.column}>
             <div className={Style.tableTitle}>
               <p>Hash</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <AiFillEye />
                   <p>{tsx.hash.slice(0, 20)}...</p>
@@ -31,10 +34,10 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
           {/* block */}
           <div className={Style.column}>
             <div className={Style.tableTitle}>
-              <p>Block</p>
+              <p>Block No</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p className={Style.toLink}>
                     <Link href={{ pathname: `/block/${tsx.blockNumber}` }}>
@@ -52,7 +55,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
               <p>TimeStamp</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p>{tsx.timeStamp}</p>
                 </div>
@@ -66,7 +69,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
               <p>From</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p>{tsx.from.slice(0, 10)}...</p>
                 </div>
@@ -80,7 +83,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
               <p>To</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p className={Style.toLink}>
                     <Link href={{ pathname: `/block/${tsx.to}` }}>
@@ -101,7 +104,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
               <p>Value</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p>{tsx.value.slice(0, 5)}...ETH</p>
                 </div>
@@ -109,30 +112,30 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
             </div>
           </div>
 
-          {/* gas price */}
+          {/* gas used */}
 
           <div className={Style.column}>
             <div className={Style.tableTitle}>
-              <p>Gas Price</p>
+              <p>Gas Used</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
-                  <p>{tsx.gasPrice}</p>
+                  <p>{tsx.gasUsed}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Block Hash */}
+          {/* Gas */}
           <div className={Style.column}>
             <div className={Style.tableTitle}>
-              <p>BlockHash</p>
+              <p>Gas</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
-                  <p>{tsx.blockHash.slice(0, 10)}...</p>
+                  <p>{tsx.gas?.slice(0, 10)}...</p>
                 </div>
               ))}
             </div>
@@ -145,7 +148,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
               <p>Input</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p>{tsx.input ? tsx.input : "No Data!" }</p>
                 </div>
@@ -160,7 +163,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
               <p>Type</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p>{tsx.type}</p>
                 </div>
@@ -175,7 +178,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
               <p>TraceId</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p>{tsx.traceId}</p>
                 </div>
@@ -190,7 +193,7 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
               <p>isError</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
+              {blockRangeTransaction.map((tsx, index) => (
                 <div className={Style.transHash} key={index}>
                   <p>{tsx.isError}</p>
                 </div>
@@ -200,20 +203,18 @@ const BlockRange = ({ blockRangeTransaction, handleClick }) => {
 
           {/* Contract Address */}
           <div className={Style.column}>
-            <div className={Style.tableTitle}>
+            <div className={`${Style.tableTitle}`}>
               <p>Contract Address</p>
             </div>
             <div className={Style.tableInfo}>
-              {accountHistory.map((tsx, index) => (
-                <div className={Style.transHash} key={index}>
-                  <p>{tsx.contractAddress ? tsx.contractAddress :"No Address!"}</p>
+              {blockRangeTransaction.map((tsx, index) => (
+                <div  key={index}>
+                  <p className="">{tsx.contractAddress ? tsx.contractAddress :"No Address!"}</p>
                 </div>
               ))}
             </div>
           </div>
 
-
-   
         </div>
       )}
     </div>

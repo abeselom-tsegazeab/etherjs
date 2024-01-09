@@ -5,7 +5,6 @@ import Link from "next/link";
 import Style from "@/styles/Table.module.css";
 
 const Internal = ({ internalByAddress, handleClick }) => {
-  console.log(internalByAddress);
   return (
     <div className={Style.dataTable}>
       {/* Hash */}

@@ -45,6 +45,7 @@ transition: all .2s ease;
     font-size: 13px;
     overflow-x: auto;
     font-weight: 400;
+    height: max-content;
 }
 
 /* .dataTable::-webkit-scrollbar{
@@ -62,11 +63,14 @@ transition: all .2s ease;
     outline: 1px solid ;
     border-radius: 1rem;
 }
-
+.tableTitle{
+    width: 200px;
+}
 .tableTitle p{
     font-size: 13px;
     font-weight: 700;
     color: white;
+
 }
 
 .transHash{
