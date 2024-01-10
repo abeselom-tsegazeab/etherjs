@@ -1,0 +1,82 @@
+
+.block{
+    width: 90%;
+    margin: 0 auto;
+    margin-block: 2rem ;
+}
+
+.box__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box__header h3{
+    color: #fff;
+    background-color: rgba(4,189,228,1);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.box__header p{
+    background-color: rgba(4,189,228,1);
+    color: #fff;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-weight: 700;
+}
+
+.blockBtn{
+    background-color: rgba(4,189,228,1);
+    display: flex;
+    gap: 1.5rem;
+    justify-content: start;
+    margin-left: -.5rem;
+    border-bottom: 1px solid  #fff;
+    padding-bottom: .5rem;
+   
+}
+
+.blockBtn button{
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.blockTable{
+    background-color: rgba(4,189,228,1);
+    margin-block: 2rem;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+}
+
+.dataRow{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+    font-size: 15.3px;
+    overflow: hidden;
+}
+
+.color{
+    color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 35em){
+    .block{
+        width: 95%;
+    }
+    .box__header p {
+       display: none;
+    }
+    .dataRow{
+        grid-template-columns: 2fr 4fr;
+    }
+   
+
+}
