@@ -3,14 +3,13 @@ import React, { useEffect, useState,  } from "react";
 import Link from "next/link";
 import { ethers } from "ethers";
 //Imternal
-import StyleTransaction from "../styles/block.module.css";
+import StyleTransaction from "@/styles/Block.module.css";
 import { useEtherScan } from "@/context/Ether";
 import { useParams } from "next/navigation";
 const Page = () => {
   const { provider } = useEtherScan()
   const params = useParams();
-  const hash = params.hash
-
+  const hash = params.address
   const transDetail = [];
   const [transactionData, setTransactionData] = useState(transDetail);
 
@@ -22,7 +21,7 @@ const Page = () => {
 
   const getDataOfTransaction = async () => {
     try {
-      const transactionDetails = await provider.getTransaction(hash);
+      const transactionDetails = await provider.getTransaction(`${hash}`);
       setTransactionData(transactionDetails);
       console.log(transactionDetails);
       transDetail.push(transactionData);
@@ -60,8 +59,7 @@ const Page = () => {
               <p>Number</p>
               <Link
                 href={{
-                  pathname: "/block/",
-                  query: transactionData.blockNumber,
+                  pathname: `/block/${transactionData.blockNumber}`
                 }}
               >
                 <p className={StyleTransaction.color}>
@@ -77,7 +75,7 @@ const Page = () => {
             <div className={StyleTransaction.dataRow}>
               <p>From</p>
               <Link
-                href={{ pathname: "/account/", query: transactionData.from }}
+                href={{ pathname: `/account/${transactionData.from}`}}
               >
                 <p className={StyleTransaction.color}>{transactionData.from}</p>
               </Link>
@@ -85,7 +83,7 @@ const Page = () => {
             <div className={StyleTransaction.dataRow}>
               <p>To</p>
               <Link
-                href={{ pathname: "/account/", query: transactionData.to }}
+                href={{ pathname: `/account/${transactionData.to}`}}
               >
                 <p className={StyleTransaction.color}>{transactionData.to}</p>
               </Link>

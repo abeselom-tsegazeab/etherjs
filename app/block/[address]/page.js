@@ -99,7 +99,7 @@ const block = () => {
                 <p>Miner</p>
 
                 <Link href={{ pathname: `/account/${blockData.miner}`}}>
-                  <p className={`${StyleTransaction.color} hover:text-blue-700`}>{blockData.miner}</p>
+                  <p className={`${StyleTransaction.color} hover:text-white text-blue-700`}>{blockData.miner}</p>
                 </Link>
               </div>
               <div className={StyleTransaction.dataRow}>
@@ -145,11 +145,13 @@ const block = () => {
               </div>
              
               <br/>
-              <div className={`${StyleTransaction.dataRow} !align-top mt-5`}>
-                <p>Transactions</p>
-                <div className="!flex !flex-col h-[200px] overflow-auto">
+              <p>Transactions</p>
+              <div className={`w-fit !align-top mt-5`}>
+                <div className="!flex !flex-col h-[200px] overflow-auto leading-10 hover:text-blue-700">
                  {blockData.transactions?.map((t,i)=>(
+                  <Link href={{pathname:`/account/${i}`}}>
                   <p key={i}>{t} ETH</p>
+                  </Link>
                  ))}
                 </div>
               </div>
@@ -166,8 +168,7 @@ const block = () => {
                       <samp>{i + 1}</samp>
                       <Link
                         href={{
-                          pathname: "/transaction/",
-                          query: blockData.hash,
+                          pathname: `/transaction/${blockData.hash}`
                         }}
                       >
                         <p className={StyleTransaction.color}>{el}</p>
