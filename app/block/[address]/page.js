@@ -43,7 +43,7 @@ const block = () => {
 
   const getBlockDetails = async () => {
     try {
-      const getBlock = await provider.getBlock(blockNumber);
+      const getBlock = await provider.getBlock(Number(blockNumber));
       dataBlock.push(getBlock);
       setblockData(getBlock);
 
@@ -98,8 +98,8 @@ const block = () => {
               <div className={StyleTransaction.dataRow}>
                 <p>Miner</p>
 
-                <Link href={{ pathname: "/account/", query: blockData.miner }}>
-                  <p className={StyleTransaction.color}>{blockData.miner}</p>
+                <Link href={{ pathname: `/account/${blockData.miner}`}}>
+                  <p className={`${StyleTransaction.color} hover:text-blue-700`}>{blockData.miner}</p>
                 </Link>
               </div>
               <div className={StyleTransaction.dataRow}>
@@ -142,6 +142,16 @@ const block = () => {
               <div className={StyleTransaction.dataRow}>
                 <p>Difficulty</p>
                 <p>{ethDifficulty} ETH</p>
+              </div>
+             
+              <br/>
+              <div className={`${StyleTransaction.dataRow} !align-top mt-5`}>
+                <p>Transactions</p>
+                <div className="!flex !flex-col h-[200px] overflow-auto">
+                 {blockData.transactions?.map((t,i)=>(
+                  <p key={i}>{t} ETH</p>
+                 ))}
+                </div>
               </div>
             </div>
           ) : (
