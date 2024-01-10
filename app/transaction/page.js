@@ -1,7 +1,7 @@
+'use client'
 import React, { useEffect, useState,  } from "react";
 import Link from "next/link";
 import { ethers } from "ethers";
-
 //Imternal
 import StyleTransaction from "../styles/block.module.css";
 import { useEtherScan } from "@/context/Ether";
