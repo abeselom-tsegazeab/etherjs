@@ -112,16 +112,16 @@ const Tabel = ({
           Tsx
         </button>
 
-        <button className={`${Style.btn} ${isActive === 4 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 7 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           Mined
         </button>
-        <button className={`${Style.btn} ${isActive === 5 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 4 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           ERC-20
         </button>
-        <button className={`${Style.btn} ${isActive === 6 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 5 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           ERC-21
         </button>
-        <button className={`${Style.btn} ${isActive === 7 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
+        <button className={`${Style.btn} ${isActive === 6 && '!text-blue-700'} `} onClick={(e) => tabs(e)}>
           ERC1155
         </button>
       </div>
