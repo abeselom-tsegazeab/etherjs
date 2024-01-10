@@ -25,8 +25,8 @@ export default function Home() {
   const accountAddress = (e) => {
     e.preventDefault();
     let address = document.getElementById("accountAddress").value.trim();
-    setUserAccount(address);
-    router.push(`/account?${address}`);
+    // setUserAccount(address);
+    router.push(`/account/${address}`);
     address = "";
   };
   function convertTimestampToDate(timestamp) {
@@ -35,10 +35,15 @@ export default function Home() {
     const formattedDate = dateObject.toUTCString();
     return formattedDate;
 }
+
+const handleChange = (e)=>{
+  e.preventDefault()
+  console.log(e)
+}
  
   return (
     <main className="">
-      <main className="md:w-[90%] w-[100vw]  m-auto lg:p-5">
+      <main className="w-[100%]  m-auto ">
         <div className={`${Style.header}`}>
           <form className={Style.accountAddress}>
             <input
@@ -46,12 +51,13 @@ export default function Home() {
               placeholder="Please Enter Your Ether Account address"
               id="accountAddress"
               className="text-white placeholder:text-white"
+              onChange={()=>setUserAccount(e.target.value)}
             />
             <Link
               href={{ pathname: `/account/${userAccount}` }}
               onClick={(e) => accountAddress(e)}
             >
-              <SiMinutemailer />
+              <SiMinutemailer size={25}/>
             </Link>
           </form>
         </div>
