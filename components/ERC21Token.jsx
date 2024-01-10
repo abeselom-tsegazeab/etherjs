@@ -9,7 +9,7 @@ const ERC21Token = ({ ERC21 }) => {
     <div>
       {ERC21.length === 0 ? (
         <div className={Style.sorry}>
-          <h1>Sorry There is no ERC21</h1>
+          <h1>Sorry there is no transaction of ERC21</h1>
         </div>
       ) : (
         <div className={Style.dataTable}>
