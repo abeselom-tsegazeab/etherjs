@@ -36,10 +36,6 @@ export default function Home() {
     return formattedDate;
 }
 
-const handleChange = (e)=>{
-  e.preventDefault()
-  console.log(e)
-}
  
   return (
     <main className="">
