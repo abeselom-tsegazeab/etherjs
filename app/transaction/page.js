@@ -85,7 +85,7 @@ const Page = () => {
             <div className={StyleTransaction.dataRow}>
               <p>To</p>
               <Link
-                href={{ pathname: "/account/", query: transactionData.from }}
+                href={{ pathname: "/account/", query: transactionData.to }}
               >
                 <p className={StyleTransaction.color}>{transactionData.to}</p>
               </Link>

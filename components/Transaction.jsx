@@ -92,7 +92,7 @@ const Transaction = ({ accountHistory, handleClick }) => {
           {accountHistory.map((tsx, index) => (
             <div className={Style.transHash} key={index}>
               <p className={Style.toLink}>
-                <Link href={{ pathname: `/block/${tsx.to}` }}>
+                <Link href={{ pathname: `/account/${tsx.to}` }}>
                   <span onClick={handleClick}>{tsx.to.slice(0, 10)}...</span>
                 </Link>
               </p>
