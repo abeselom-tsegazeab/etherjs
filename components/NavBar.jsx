@@ -44,6 +44,7 @@ const NavBar = () => {
           setPrice(res.data.result);
           const timestamp = Number(res.data.result.ethusd_timestamp);
           const date = new Date(timestamp);
+          
           setUpdatedPriceDate(
             "UpDate:" +
               date.getHours() +
