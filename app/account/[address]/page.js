@@ -9,7 +9,7 @@ import Style from "../../../styles/Account.module.css";
 import { useEtherScan } from "@/context/Ether";
 import Loading from "@/components/Loading";
 import logo from "../../../public/assets/ethereum.png";
-const page = () => {
+const Page = () => {
   const { provider } = useEtherScan();
   const params = useParams();
 
@@ -194,4 +194,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -10,7 +10,7 @@ import { AiFillEye } from "react-icons/ai";
 
 import { useEtherScan } from "@/context/Ether";
 
-const block = () => {
+const Page = () => {
   const { provider } = useEtherScan()
   const params = useParams();
 
@@ -185,4 +185,4 @@ const block = () => {
   );
 };
 
-export default block;
+export default Page;
