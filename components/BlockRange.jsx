@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+'use client'
+import React from "react";
 import { AiFillEye } from "react-icons/ai";
 import Link from "next/link";
 
