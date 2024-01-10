@@ -44,7 +44,7 @@ const NavBar = () => {
           setPrice(res.data.result);
           const timestamp = Number(res.data.result.ethusd_timestamp);
           const date = new Date(timestamp);
-          
+
           setUpdatedPriceDate(
             "UpDate:" +
               date.getHours() +
@@ -65,7 +65,7 @@ const NavBar = () => {
     }
   };
 
-  // a function to check if wallet exists
+  // A function to check if wallet exists
 
   const checkIfAccountExist = async () => {
     try {
@@ -82,7 +82,7 @@ const NavBar = () => {
     }
   };
 
-  // a function to connect to wallet
+  // A function to connect to wallet
 
   const connectWallet = async () => {
     try {
