@@ -147,10 +147,10 @@ const block = () => {
               <br/>
               <p>Transactions</p>
               <div className={`w-fit !align-top mt-5`}>
-                <div className="!flex !flex-col h-[200px] overflow-auto leading-10 hover:text-blue-700">
+                <div className="!flex !flex-col h-[200px] overflow-auto leading-10 ">
                  {blockData.transactions?.map((t,i)=>(
-                  <Link href={{pathname:`/account/${i}`}}>
-                  <p key={i}>{t} ETH</p>
+                  <Link href={{pathname:`/account/${t}`}}>
+                  <p key={i} className="hover:text-blue-700">{t} ETH</p>
                   </Link>
                  ))}
                 </div>
