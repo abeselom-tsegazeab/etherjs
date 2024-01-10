@@ -112,7 +112,7 @@ export default function Home() {
           {/* Transactions */}
           <div className={`${Style.container_box} `}>
             <h3>Latest Transaction</h3>
-            <div className={`${Style.container_block} h-[1500px]  overflow-auto`}>
+            <div className={`${Style.container_block} h-[1499px]  overflow-auto`}>
               {transaction.map((e, i) => (
                 <div className={`${Style.oneBlock}  my-6 border border-[rgba(4,189,228,1)] rounded-[10px] p-3 hover:shadow-lg drop-shadow-xl`} key={i}>
                   <div className={Style.info}>
